@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ATHLETE VALUE FORUM 5 PITCH CONTEST 〜未来へのわだち〜 出場アスリート募集｜アスユメLabo.</title>
+<meta name="description" content="アスリートが自らの価値と未来を語るピッチコンテスト「ATHLETE VALUE FORUM 5」。2027年2月20日（土）docomo R&D OPEN LAB ODAIBAにて開催。出場アスリート募集中。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=Outfit:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #000;
+  --fg: #fff;
+  --text: rgba(255, 255, 255, .84);
+  --sub: rgba(255, 255, 255, .62);
+  --gold: #c9ab6c;
+  --line: rgba(255, 255, 255, .14);
+  --head: 60px;
+  --cols: 12;
+  --en: "Outfit", sans-serif;
+  --cond: "Barlow Condensed", sans-serif;
+  --ja: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--head); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--ja);
+  font-size: 15px;
+  line-height: 2;
+  letter-spacing: .04em;
+  -webkit-font-smoothing: antialiased;
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+p { margin: 0; }
+h1, h2, h3 { margin: 0; font-weight: inherit; }
+.kw { word-break: keep-all; }
+[hidden] { display: none !important; }
+
+/* ---------- header ---------- */
+.header {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  height: var(--head);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 0 0 32px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.header__logo img { width: 150px; }
+.nav { display: flex; align-items: center; height: 100%; }
+.nav a {
+  font-family: var(--cond); font-weight: 400; font-size: 17px; letter-spacing: .14em;
+  padding: 0 14px; color: var(--text); transition: color .2s;
+}
+.nav a:hover { color: var(--gold); }
+.nav .nav__entry {
+  margin-left: 14px; height: 100%; display: flex; align-items: center;
+  padding: 0 26px; background: var(--fg); color: #000;
+  font-family: var(--ja); font-weight: 700; font-size: 13px; letter-spacing: .12em;
+  transition: background .2s;
+}
+.nav .nav__entry:hover { background: var(--gold); color: #000; }
+.menu-btn { display: none; }
+
+main { position: relative; padding-top: var(--head); }
+
+/* ---------- grid helpers ---------- */
+.sec { position: relative; border-top: 1px solid var(--line); }
+.wrap { display: grid; grid-template-columns: repeat(var(--cols), 1fr); }
+.sec__head { grid-column: 1 / -1; padding: 120px 0 56px calc(100% / var(--cols)); }
+.label { display: block; font-size: 13px; font-weight: 500; letter-spacing: .16em; color: var(--gold); margin-bottom: 10px; }
+.h-en {
+  font-family: var(--en); font-weight: 800; font-size: clamp(52px, 8.4vw, 124px);
+  line-height: .9; letter-spacing: -.01em; text-transform: uppercase;
+}
+
+/* reveal */
+.mask { display: block; overflow: hidden; padding-bottom: .06em; }
+.mask > span { display: inline-block; transform: translateY(108%); transition: transform 1.1s cubic-bezier(.19, 1, .22, 1); }
+.is-in .mask > span, .mask.is-in > span { transform: none; }
+.mask:nth-child(2) > span { transition-delay: .08s; }
+.mask:nth-child(3) > span { transition-delay: .16s; }
+.mask:nth-child(4) > span { transition-delay: .24s; }
+.fade { opacity: 0; transform: translateY(24px); transition: opacity 1s ease, transform 1s cubic-bezier(.19, 1, .22, 1); }
+.fade.is-in { opacity: 1; transform: none; }
+
+/* ---------- FV ---------- */
+.fv {
+  position: relative; overflow: hidden;
+  min-height: calc(100svh - var(--head));
+  display: grid; grid-template-columns: repeat(var(--cols), 1fr); grid-template-rows: 1fr auto;
+}
+.fv__phoenix {
+  position: absolute; z-index: 0; pointer-events: none;
+  width: min(68vw, 900px); right: -4%; top: 2%;
+  filter: grayscale(1) brightness(1.15); opacity: 0;
+  transform: translate(40px, 30px) rotate(-6deg);
+  transition: opacity 2.4s ease .4s, transform 2.8s cubic-bezier(.19, 1, .22, 1) .4s;
+}
+.is-loaded .fv__phoenix { opacity: .42; transform: rotate(-6deg); }
+.fv__body {
+  position: relative; z-index: 1; grid-column: 2 / -2; align-self: center;
+  padding: 48px 0 40px;
+}
+.fv__eyebrow { font-family: var(--cond); font-size: 15px; letter-spacing: .3em; color: var(--gold); margin-bottom: 18px; }
+.fv__title { display: flex; align-items: last baseline; gap: .08em; font-family: var(--en); font-weight: 800; font-size: clamp(44px, min(11.6vw, 14.5svh), 136px); text-transform: uppercase; }
+.fv__lines { line-height: .86; letter-spacing: -.012em; }
+/* (2 × 行送り(.86 + .mask下余白.06) + Outfitのキャップハイト.709) ÷ 数字の高さ.709 → 3行ぶんの高さにそろう */
+.fv__num { font-size: 3.595em; line-height: .78; color: var(--gold); letter-spacing: 0; }
+.fv__row { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 40px; }
+.fv__sub { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; }
+.countdown__label { font-size: 13px; font-weight: 700; letter-spacing: .14em; color: var(--gold); line-height: 1.4; }
+.countdown__label span { margin-left: 10px; font-weight: 500; color: var(--text); }
+.countdown__nums { display: flex; align-items: baseline; gap: 18px; margin-top: 8px; font-family: var(--en); font-variant-numeric: tabular-nums; }
+.countdown__nums b { font-weight: 700; font-size: 46px; line-height: 1; letter-spacing: .01em; }
+.countdown__nums small { margin-left: 5px; font-family: var(--cond); font-size: 13px; letter-spacing: .16em; color: var(--sub); }
+.countdown__end { margin-top: 8px; font-size: 18px; font-weight: 700; }
+.fv__sub-en { font-family: var(--cond); font-weight: 500; font-size: clamp(22px, 2.6vw, 32px); letter-spacing: .26em; }
+.fv__sub-ja { font-size: clamp(16px, 1.7vw, 21px); font-weight: 500; letter-spacing: .2em; color: var(--text); }
+.fv__foot {
+  position: relative; z-index: 1; grid-column: 1 / -1;
+  display: grid; grid-template-columns: repeat(var(--cols), 1fr);
+  border-top: 1px solid var(--line); background: var(--bg);
+}
+.fv__cell { padding: 20px 0 22px 18px; }
+.fv__cell small { display: block; font-family: var(--cond); font-size: 12px; letter-spacing: .2em; color: var(--sub); line-height: 1.4; margin-bottom: 6px; }
+.fv__date { grid-column: 1 / 5; padding-left: calc(100% / 4); }
+.fv__date strong { font-family: var(--en); font-weight: 700; font-size: 34px; line-height: 1; letter-spacing: .02em; }
+.fv__date span { font-family: var(--cond); font-size: 16px; letter-spacing: .16em; margin-left: 8px; color: var(--text); }
+.fv__venue { grid-column: 5 / 9; border-left: 1px solid var(--line); }
+.fv__venue strong { font-family: var(--cond); font-weight: 500; font-size: 22px; letter-spacing: .08em; line-height: 1.2; }
+.fv__cta { grid-column: 9 / -1; }
+.btn-entry {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 100%;
+  padding: 0 28px; background: var(--gold); color: #000; transition: background .25s;
+}
+.btn-entry:hover { background: var(--fg); }
+.btn-entry b { display: block; font-size: 17px; font-weight: 700; letter-spacing: .1em; line-height: 1.4; }
+.btn-entry small { display: block; font-size: 12px; letter-spacing: .06em; line-height: 1.5; }
+.btn-entry svg { flex-shrink: 0; transition: transform .25s; }
+.btn-entry:hover svg { transform: translateX(6px); }
+
+/* ---------- MESSAGE ---------- */
+.message .wrap { padding: 150px 0 160px; }
+.message__copy {
+  grid-column: 2 / -2;
+  font-weight: 700; font-size: clamp(34px, 6vw, 84px); line-height: 1.32; letter-spacing: .06em;
+  word-break: keep-all;
+}
+.message__copy em { font-style: normal; color: var(--gold); }
+.message__lead { grid-column: 2 / 9; margin-top: 56px; font-size: 16px; line-height: 2.2; color: var(--text); }
+
+/* ---------- WINNER ---------- */
+.winner .wrap { padding-bottom: 140px; align-items: end; }
+.winner__photo { grid-column: 2 / 7; overflow: hidden; margin: 0; }
+.winner__photo img { width: 100%; aspect-ratio: 1024 / 696; object-fit: cover; }
+.winner__body { grid-column: 8 / -2; }
+.winner__award { font-size: 13px; font-weight: 700; letter-spacing: .16em; color: var(--gold); }
+.winner__name { font-size: 34px; font-weight: 700; line-height: 1.4; letter-spacing: .1em; margin-top: 6px; }
+.winner__en { font-family: var(--cond); font-size: 15px; letter-spacing: .24em; color: var(--sub); }
+.winner__role { font-size: 13px; color: var(--text); margin-top: 2px; }
+.winner__comment { margin: 36px 0 0; padding: 0; font-size: 19px; font-weight: 500; line-height: 2.05; letter-spacing: .06em; }
+.winner__src { margin-top: 20px; font-size: 12px; color: var(--sub); }
+
+.gallery { grid-column: 1 / -1; margin-top: 110px; overflow: hidden; display: flex; }
+.gallery__track { list-style: none; margin: 0; padding: 0; display: flex; flex-shrink: 0; animation: gallery 60s linear infinite; }
+.gallery:hover .gallery__track { animation-play-state: paused; }
+.gallery__slide { flex-shrink: 0; margin-right: 16px; }
+.gallery__slide img { height: 380px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+@keyframes gallery { to { transform: translateX(-100%); } }
+
+/* ---------- CONCEPT ---------- */
+.concept__body { grid-column: 5 / -2; padding-bottom: 140px; }
+.concept__body p { color: var(--text); font-size: 16px; line-height: 2.25; }
+.concept__body p + p { margin-top: 1.6em; }
+.concept__sign { margin-top: 48px !important; color: var(--fg) !important; font-weight: 500; }
+.concept__sign span { display: block; font-family: var(--cond); font-size: 13px; letter-spacing: .2em; color: var(--sub); }
+
+/* ---------- GUIDELINES ---------- */
+.guide__list { grid-column: 2 / -2; margin: 0 0 140px; }
+.guide__row { display: grid; grid-template-columns: repeat(10, 1fr); border-top: 1px solid var(--line); padding: 40px 0; }
+.guide__row:last-child { border-bottom: 1px solid var(--line); }
+.guide__row dt { grid-column: 1 / 4; font-weight: 700; font-size: 17px; line-height: 1.5; }
+.guide__row dt span { display: block; font-family: var(--cond); font-weight: 400; font-size: 13px; letter-spacing: .2em; color: var(--gold); margin-top: 4px; }
+.guide__row dd { grid-column: 4 / -1; margin: 0; color: var(--text); font-size: 16px; }
+.guide__row dd strong { color: var(--fg); font-size: 19px; font-weight: 700; display: block; line-height: 1.6; }
+.merit { list-style: none; margin: 0; padding: 0; }
+.merit li { display: grid; grid-template-columns: 64px 1fr; align-items: baseline; line-height: 1.8; padding: 4px 0; }
+.merit li + li { margin-top: 14px; }
+.merit b { font-family: var(--en); font-weight: 700; font-size: 32px; line-height: 1; color: var(--gold); }
+
+/* ---------- SCHEDULE ---------- */
+.schedule .wrap { padding-bottom: 140px; }
+.schedule__body { grid-column: 4 / -1; }
+.phase { display: grid; grid-template-columns: 64px 1fr; border-top: 1px solid var(--line); }
+.phase:last-child { border-bottom: 1px solid var(--line); }
+.phase__name {
+  writing-mode: vertical-rl; display: flex; align-items: center; justify-content: flex-start;
+  padding: 24px 0; border-right: 1px solid var(--line);
+  font-family: var(--cond); font-weight: 300; font-size: 26px; letter-spacing: .14em; color: var(--sub);
+}
+.phase--final .phase__name { color: var(--gold); }
+.step { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: center; padding: 30px 36px; }
+.step + .step { border-top: 1px solid var(--line); }
+.step__date { font-family: var(--en); font-weight: 700; font-size: 52px; line-height: 1; letter-spacing: .01em; }
+.step__date small { display: block; font-family: var(--cond); font-weight: 400; font-size: 14px; letter-spacing: .2em; color: var(--sub); margin-bottom: 6px; }
+.step__date .w { font-family: var(--cond); font-weight: 400; font-size: 15px; letter-spacing: .14em; color: var(--sub); margin-left: 4px; }
+.step__txt b { display: block; font-size: 18px; font-weight: 700; line-height: 1.6; }
+.step__txt span { display: block; font-size: 13px; color: var(--sub); line-height: 1.7; margin-top: 2px; }
+.phase--final .step__date { color: var(--gold); }
+
+/* ---------- PRIZE ---------- */
+.prize .wrap { padding-bottom: 140px; }
+.prize__main { grid-column: 2 / -1; margin: 0; display: flex; align-items: flex-end; gap: 18px; }
+.prize__tag { writing-mode: vertical-rl; font-size: 15px; font-weight: 700; letter-spacing: .3em; padding: 0 12px 18px 0; border-right: 1px solid var(--fg); margin-bottom: 20px; line-height: 1; }
+.prize__num { position: relative; font-family: var(--en); font-weight: 800; font-size: clamp(120px, 16.5vw, 250px); line-height: .8; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.prize__ghost { visibility: hidden; }
+.prize__count { position: absolute; right: 0; bottom: 0; transform-origin: right bottom; }
+.prize__count.is-landed { color: var(--gold); animation: prize-land .6s cubic-bezier(.2, 1.6, .4, 1); }
+@keyframes prize-land { 0% { transform: scale(1.14); } 100% { transform: none; } }
+.prize__unit { font-size: clamp(28px, 3vw, 44px); font-weight: 700; margin-bottom: 14px; line-height: 1; }
+.prize__side { grid-column: 2 / 6; margin-top: 64px; border-top: 1px solid var(--line); padding-top: 24px; }
+.prize__side dt { font-weight: 700; font-size: 15px; }
+.prize__side dd { margin: 4px 0 0; }
+.prize__side dd strong { font-family: var(--en); font-weight: 700; font-size: 56px; line-height: 1.1; }
+.prize__side dd strong span { font-family: var(--ja); font-size: 22px; margin-left: 4px; }
+.prize__side dd p { color: var(--sub); font-size: 13px; }
+
+/* ---------- AMBASSADORS ---------- */
+.amb .wrap { padding-bottom: 140px; }
+.amb__lead { grid-column: 2 / 8; margin: -24px 0 56px; color: var(--text); }
+.amb__list { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.person { padding: 0 0 40px; }
+.person + .person { border-left: 1px solid var(--line); }
+.person__photo { overflow: hidden; aspect-ratio: 600 / 640; }
+.person__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; filter: grayscale(1) contrast(1.05); transform: scale(1.02); transition: filter .6s, transform 1.2s cubic-bezier(.19, 1, .22, 1); }
+.person:hover .person__photo img { filter: none; transform: scale(1.06); }
+.person__info { padding: 28px 28px 0; }
+.person__role { font-size: 13px; color: var(--gold); letter-spacing: .12em; font-weight: 500; }
+.person__name { font-size: 28px; font-weight: 700; line-height: 1.4; margin-top: 4px; letter-spacing: .1em; }
+.person__en { font-family: var(--cond); font-size: 15px; letter-spacing: .24em; color: var(--sub); }
+.person__career { list-style: none; margin: 20px 0 0; padding: 0; font-size: 13px; line-height: 1.85; color: var(--text); }
+.person details { margin-top: 22px; border-top: 1px solid var(--line); }
+.person summary {
+  list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 0 0; font-family: var(--cond); font-size: 15px; letter-spacing: .2em; color: var(--fg);
+}
+.person summary::-webkit-details-marker { display: none; }
+.person summary i { font-style: normal; font-size: 20px; line-height: 1; transition: transform .3s; }
+.person details[open] summary i { transform: rotate(45deg); }
+.person details p { margin-top: 14px; font-size: 14px; line-height: 2; color: var(--text); }
+
+/* ---------- VENUE ---------- */
+.venue .wrap { padding-bottom: 140px; }
+.venue__name { grid-column: 2 / 8; font-family: var(--en); font-weight: 700; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.15; }
+.venue__addr { grid-column: 9 / -2; align-self: end; color: var(--text); }
+.venue__addr a { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; font-family: var(--cond); font-size: 15px; letter-spacing: .2em; color: var(--fg); border-bottom: 1px solid var(--fg); line-height: 1.6; transition: color .2s, border-color .2s; }
+.venue__addr a:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ---------- ENTRY ---------- */
+.entry { border-top: 1px solid var(--line); }
+.entry__link { display: grid; grid-template-columns: repeat(var(--cols), 1fr); padding: 120px 0 110px; transition: background .4s, color .4s; }
+.entry__link:hover { background: var(--gold); color: #000; }
+.entry__link:hover .label, .entry__link:hover .entry__meta,
+.entry__link:hover .countdown__label, .entry__link:hover .countdown__label span,
+.entry__link:hover .countdown__nums small { color: #000; }
+.countdown--entry { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); transition: border-color .4s; }
+.entry__link:hover .countdown--entry { border-color: rgba(0, 0, 0, .25); }
+.countdown--entry .countdown__label { font-size: 14px; transition: color .4s; }
+.countdown--entry .countdown__nums { gap: 32px; margin-top: 12px; }
+.countdown--entry .countdown__nums b { font-size: clamp(56px, 7.4vw, 104px); }
+.countdown--entry .countdown__nums small { font-size: 15px; margin-left: 8px; transition: color .4s; }
+.entry__inner { grid-column: 2 / -2; }
+.entry__big { display: flex; align-items: center; justify-content: space-between; font-family: var(--en); font-weight: 800; font-size: clamp(80px, 17vw, 250px); line-height: .82; letter-spacing: -.02em; }
+.entry__big svg { width: .42em; height: .42em; transition: transform .4s; }
+.entry__link:hover .entry__big svg { transform: translateX(14px); }
+.entry__meta { margin: 40px 0 0; display: flex; flex-wrap: wrap; gap: 12px 56px; color: var(--text); transition: color .4s; }
+.entry__meta div { display: flex; align-items: baseline; gap: 16px; }
+.entry__meta dt { font-weight: 700; font-size: 14px; letter-spacing: .14em; }
+.entry__meta dd { margin: 0; font-size: 17px; letter-spacing: .06em; }
+
+/* ---------- FOOTER ---------- */
+.footer { border-top: 1px solid var(--line); }
+.footer .wrap { padding: 64px 0 72px; align-items: end; }
+.footer__logo { grid-column: 2 / 6; }
+.footer__logo img { width: 210px; }
+.footer__links { grid-column: 7 / -2; display: flex; justify-content: flex-end; gap: 32px; font-size: 13px; color: var(--text); }
+.footer__links a:hover { color: var(--gold); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1024px) {
+  .nav a:not(.nav__entry) { padding: 0 9px; font-size: 15px; }
+  .schedule__body { grid-column: 2 / -1; }
+}
+@media (max-width: 768px) {
+  :root { --head: 56px; --cols: 4; }
+  body { font-size: 14px; }
+  .header { padding-left: 16px; }
+  .header__logo img { width: 124px; }
+  .nav a:not(.nav__entry) { display: none; }
+  .nav .nav__entry { margin: 0; padding: 0 16px; font-size: 12px; }
+  .menu-btn { display: flex; flex-direction: column; justify-content: center; gap: 6px; width: 56px; height: 100%; background: none; border: 0; padding: 0 17px; cursor: pointer; }
+  .menu-btn span { display: block; height: 1px; background: var(--fg); transition: transform .3s; }
+  .is-menu .menu-btn span:first-child { transform: translateY(3.5px) rotate(20deg); }
+  .is-menu .menu-btn span:last-child { transform: translateY(-3.5px) rotate(-20deg); }
+  .sp-menu { position: fixed; inset: var(--head) 0 0 0; z-index: 49; background: var(--bg); padding: 32px 24px; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
+  .is-menu .sp-menu { opacity: 1; visibility: visible; }
+  .sp-menu a { font-family: var(--en); font-weight: 700; font-size: 34px; line-height: 1; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .sp-menu a span { display: block; font-family: var(--ja); font-size: 12px; font-weight: 500; color: var(--gold); letter-spacing: .14em; margin-top: 8px; }
+
+  .sec__head { padding: 88px 20px 40px; }
+  .h-en { font-size: 12vw; }
+  .fv__phoenix { width: 120vw; right: -38vw; top: 4%; }
+  .is-loaded .fv__phoenix { opacity: .34; }
+  .fv__body { grid-column: 1 / -1; padding: 56px 20px 40px; }
+  .fv__eyebrow { font-size: 12px; letter-spacing: .22em; margin-bottom: 16px; }
+  .fv__title { font-size: 12.6vw; }
+  .fv__row { margin-top: 24px; gap: 28px; }
+  .fv__sub { flex-direction: column; gap: 4px; }
+  .countdown__label span { display: block; margin: 2px 0 0; }
+  .countdown__nums { gap: 12px; }
+  .countdown__nums b { font-size: 34px; }
+  .countdown__nums small { margin-left: 3px; font-size: 11px; }
+  .fv__sub-en { font-size: 20px; letter-spacing: .22em; }
+  .fv__sub-ja { font-size: 15px; }
+  .fv__date { grid-column: 1 / 3; padding-left: 20px; }
+  .fv__date strong { font-size: 24px; }
+  .fv__date span { display: block; margin: 6px 0 0; font-size: 13px; }
+  .fv__venue { grid-column: 3 / -1; }
+  .fv__venue strong { font-size: 16px; }
+  .fv__cta { grid-column: 1 / -1; }
+  .btn-entry { padding: 18px 20px; }
+
+  .message .wrap { padding: 96px 20px 104px; }
+  .message__copy, .message__lead { grid-column: 1 / -1; }
+  .message__copy { font-size: 9.4vw; }
+  .message__lead { margin-top: 36px; font-size: 15px; }
+
+  .winner .wrap { padding-bottom: 96px; }
+  .winner__photo { grid-column: 1 / -1; }
+  .winner__body { grid-column: 1 / -1; padding: 28px 20px 0; }
+  .winner__name { font-size: 28px; }
+  .winner__comment { margin-top: 24px; font-size: 16px; }
+  .gallery { margin-top: 72px; }
+  .gallery__track { animation-duration: 40s; }
+  .gallery__slide { margin-right: 10px; }
+  .gallery__slide img { height: 200px; }
+
+  .concept__body { grid-column: 1 / -1; padding: 0 20px 96px; }
+  .concept__body p { font-size: 15px; }
+
+  .guide__list { grid-column: 1 / -1; margin: 0 20px 96px; }
+  .guide__row { grid-template-columns: 1fr; gap: 14px; padding: 28px 0; }
+  .guide__row dt, .guide__row dd { grid-column: 1 / -1; }
+  .merit li { grid-template-columns: 48px 1fr; }
+  .merit b { font-size: 26px; }
+
+  .schedule .wrap { padding-bottom: 96px; }
+  .schedule__body { grid-column: 1 / -1; padding: 0 20px; }
+  .phase { grid-template-columns: 44px 1fr; }
+  .phase__name { font-size: 20px; }
+  .step { grid-template-columns: 1fr; gap: 8px; padding: 24px 0 24px 18px; }
+  .step__date { font-size: 34px; }
+
+  .prize .wrap { padding-bottom: 96px; }
+  .prize__main, .prize__side { grid-column: 1 / -1; margin-left: 20px; margin-right: 20px; }
+  .prize__main { flex-wrap: wrap; gap: 0 8px; }
+  .prize__tag { writing-mode: horizontal-tb; flex-basis: 100%; border-right: 0; padding: 0; margin-bottom: 14px; color: var(--gold); letter-spacing: .2em; }
+  .prize__num { font-size: 20.5vw; }
+  .prize__unit { font-size: 22px; margin-bottom: 6px; }
+  .prize__side { margin-top: 48px; }
+
+  .amb .wrap { padding-bottom: 96px; }
+  .amb__lead { grid-column: 1 / -1; margin: -16px 20px 40px; }
+  .amb__list { grid-template-columns: 1fr; }
+  .person + .person { border-left: 0; border-top: 1px solid var(--line); }
+  .person__info { padding: 24px 20px 0; }
+  .person details { margin-left: 0; }
+
+  .venue .wrap { padding-bottom: 96px; }
+  .venue__name, .venue__addr { grid-column: 1 / -1; margin-left: 20px; margin-right: 20px; }
+  .venue__addr { margin-top: 24px; }
+
+  .entry__link { padding: 80px 20px 72px; }
+  .entry__inner { grid-column: 1 / -1; }
+  .entry__big { font-size: 19vw; gap: 16px; }
+  .entry__big svg { width: .36em; height: .36em; flex-shrink: 0; }
+  .countdown--entry { margin-top: 32px; padding-top: 24px; }
+  .countdown--entry .countdown__nums { gap: 12px; }
+  .countdown--entry .countdown__nums b { font-size: 38px; }
+  .countdown--entry .countdown__nums small { font-size: 11px; margin-left: 3px; }
+  .entry__meta { flex-direction: column; gap: 10px; margin-top: 28px; }
+  .entry__meta div { flex-direction: column; gap: 0; }
+  .entry__meta dd { font-size: 15px; }
+
+  .footer .wrap { padding: 48px 20px 64px; row-gap: 28px; }
+  .footer__logo, .footer__links { grid-column: 1 / -1; }
+  .footer__links { justify-content: flex-start; flex-wrap: wrap; gap: 12px 24px; }
+}
+@media (min-width: 769px) { .sp-menu { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .mask > span, .fade, .fv__phoenix { transition: none !important; transform: none !important; opacity: 1 !important; }
+  .is-loaded .fv__phoenix { opacity: .42 !important; }
+  .gallery__track { animation-duration: 180s !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a class="header__logo" href="#top" aria-label="アスユメLabo."><img src="assets/logo.png" alt="アスユメLabo." width="708" height="90"></a>
+  <nav class="nav" aria-label="ページ内メニュー">
+    <a href="#prize">PRIZE</a>
+    <a href="#winner">WINNER</a>
+    <a href="#concept">CONCEPT</a>
+    <a href="#guidelines">GUIDELINES</a>
+    <a href="#schedule">SCHEDULE</a>
+    <a href="#ambassadors">AMBASSADORS</a>
+    <a href="#venue">VENUE</a>
+    <a class="nav__entry" href="#entry">出場エントリー</a>
+    <button class="menu-btn" type="button" aria-label="メニュー"><span></span><span></span></button>
+  </nav>
+</header>
+
+<div class="sp-menu" aria-hidden="true">
+  <a href="#prize">PRIZE<span>賞金・エントリー費</span></a>
+  <a href="#winner">WINNER<span>前回優勝者</span></a>
+  <a href="#concept">CONCEPT<span>AVF5について</span></a>
+  <a href="#guidelines">GUIDELINES<span>募集要項</span></a>
+  <a href="#schedule">SCHEDULE<span>スケジュール</span></a>
+  <a href="#ambassadors">AMBASSADORS<span>アンバサダー</span></a>
+  <a href="#venue">VENUE<span>会場</span></a>
+</div>
+
+<main id="top">
+
+  <!-- FV -->
+  <section class="fv">
+    <img class="fv__phoenix" src="assets/phoenix.png" alt="" width="812" height="597">
+    <div class="fv__body">
+      <p class="fv__eyebrow">ASUYUME LABO. PRESENTS</p>
+      <h1 class="fv__title" aria-label="ATHLETE VALUE FORUM 5 PITCH CONTEST 〜未来へのわだち〜">
+        <span class="fv__lines" aria-hidden="true">
+          <span class="mask"><span>Athlete</span></span>
+          <span class="mask"><span>Value</span></span>
+          <span class="mask"><span>Forum</span></span>
+        </span>
+        <span class="fv__num mask" aria-hidden="true"><span>5</span></span>
+      </h1>
+      <div class="fv__row">
+        <div class="fv__sub fade">
+          <span class="fv__sub-en">PITCH CONTEST</span>
+          <span class="fv__sub-ja">〜未来へのわだち〜</span>
+        </div>
+        <div class="countdown fade js-countdown" role="timer" aria-live="off">
+          <p class="countdown__label">応募締切まで<span>11.14（土）23:59</span></p>
+          <p class="countdown__nums">
+            <span><b data-unit="d">--</b><small>DAYS</small></span>
+            <span><b data-unit="h">--</b><small>HRS</small></span>
+            <span><b data-unit="m">--</b><small>MIN</small></span>
+            <span><b data-unit="s">--</b><small>SEC</small></span>
+          </p>
+          <p class="countdown__end" hidden>応募受付は終了しました</p>
+        </div>
+      </div>
+    </div>
+    <div class="fv__foot">
+      <div class="fv__cell fv__date"><small>DATE</small><strong>2027.2.20</strong><span>SATURDAY</span></div>
+      <div class="fv__cell fv__venue"><small>VENUE</small><strong>docomo R&amp;D OPEN LAB ODAIBA</strong></div>
+      <div class="fv__cta">
+        <a class="btn-entry" href="#entry">
+          <span><b>出場アスリート募集中</b><small>応募期間 2026.10.15（木）〜 11.14（土）23:59</small></span>
+          <svg width="28" height="14" viewBox="0 0 28 14" fill="none" aria-hidden="true"><path d="M0 7h26M20 1l6 6-6 6" stroke="currentColor" stroke-width="1.6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MESSAGE -->
+  <section class="sec message">
+    <div class="wrap">
+      <h2 class="message__copy">
+        <span class="mask"><span>あなたの熱き魂を、</span></span>
+        <span class="mask"><span>言葉に変えろ。</span></span>
+        <span class="mask"><span><em>未来への轍を刻め。</em></span></span>
+      </h2>
+      <p class="message__lead fade">競技歴や実績は問いません。競技を通じて培ってきた経験を、これからの社会でどう生かすか。<br>アスリートが自らの価値と未来を、自分の言葉で語るピッチコンテストです。</p>
+    </div>
+  </section>
+
+  <!-- PRIZE -->
+  <section class="sec prize" id="prize">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label fade">賞金・エントリー費</span>
+        <h2 class="h-en"><span class="mask"><span>Prize</span></span></h2>
+      </div>
+      <p class="prize__main fade" aria-label="賞金総額 20万円">
+        <span class="prize__tag" aria-hidden="true">賞金総額</span>
+        <span class="prize__num" aria-hidden="true"><span class="prize__ghost">200,000</span><span class="prize__count js-prize" data-to="200000">200,000</span></span>
+        <span class="prize__unit" aria-hidden="true">円</span>
+      </p>
+      <dl class="prize__side fade">
+        <dt>エントリー費</dt>
+        <dd><strong>2<span>万円</span></strong><p>2月20日のイベント参加費を含みます</p></dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- WINNER -->
+  <section class="sec winner" id="winner">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label fade">前回優勝者</span>
+        <h2 class="h-en"><span class="mask"><span>Winner</span></span></h2>
+      </div>
+      <figure class="winner__photo fade"><img src="assets/shimozawa_pitch.jpg" alt="AVF4でピッチをする下澤悠太選手" width="1024" height="696" loading="lazy"></figure>
+      <div class="winner__body fade">
+        <p class="winner__award">AVF4 最優秀賞</p>
+        <h3 class="winner__name">下澤 悠太</h3>
+        <p class="winner__en">YUTA SHIMOZAWA</p>
+        <p class="winner__role">プロサッカー選手</p>
+        <blockquote class="winner__comment">自分の競技人生を改めて振り返り、言葉にすることで、これまでの経験がどんな価値を持っていたのか整理することができました。この経験をこれからの競技や活動にも活かしていきたいと思います。</blockquote>
+        <p class="winner__src">ATHLETE VALUE FORUM 4（2026.1.10）より</p>
+      </div>
+
+      <div class="gallery fade" aria-label="AVF4の写真">
+        <ul class="gallery__track">
+          <li class="gallery__slide"><img src="assets/avf4_01.jpg" alt="AVF4 表彰後の集合写真" width="1024" height="668"></li>
+          <li class="gallery__slide"><img src="assets/avf4_02.jpg" alt="AVF4 登壇アスリートのピッチ" width="1024" height="680"></li>
+          <li class="gallery__slide"><img src="assets/avf4_03.jpg" alt="アンバサダー 馬場龍成選手" width="1024" height="677"></li>
+          <li class="gallery__slide"><img src="assets/avf4_04.jpg" alt="AVF4 会場の来場者" width="1024" height="691"></li>
+          <li class="gallery__slide"><img src="assets/avf4_05.jpg" alt="AVF4 会場の様子" width="1024" height="682"></li>
+        </ul>
+        <ul class="gallery__track" aria-hidden="true">
+          <li class="gallery__slide"><img src="assets/avf4_01.jpg" alt="" width="1024" height="668"></li>
+          <li class="gallery__slide"><img src="assets/avf4_02.jpg" alt="" width="1024" height="680"></li>
+          <li class="gallery__slide"><img src="assets/avf4_03.jpg" alt="" width="1024" height="677"></li>
+          <li class="gallery__slide"><img src="assets/avf4_04.jpg" alt="" width="1024" height="691"></li>
+          <li class="gallery__slide"><img src="assets/avf4_05.jpg" alt="" width="1024" height="682"></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCEPT -->
+  <section class="sec concept" id="concept">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label fade">AVF5について</span>
+        <h2 class="h-en"><span class="mask"><span>Concept</span></span></h2>
+      </div>
+      <div class="concept__body fade">
+        <p>AVF4は、ピッチイベントというアスユメLabo.としての初の挑戦となりました。開催に至るまでは、成功できるのか？という不安な気持ちに苛まれながらも、現役のアスリートの熱い想いと価値を多くの方に届けるというミッションを信じながら無我夢中で準備を進めてまいりました。イベントはご存じの通りの大成功。次回への声援も多くいただきました。</p>
+        <p>しかし何よりも、登壇アスリートがピッチを通して大きく成長し、実績を重ね全選手が自分の新しい扉を開き、現在もその活躍を続けていることに主催者として喜びと大きな誇りを感じております。</p>
+        <p>AVF5はその価値と意義を継承し、さらなる発展を遂げさせることを目的に開催を決定いたしました。</p>
+        <p>再び私たちアスユメLabo.といっしょに新しいVALUEを創造していただける熱いアスリートをここに募集いたします！<br>ここからいっしょに ATHLETE VALUE と未来への轍を創造しましょう！</p>
+        <p class="concept__sign"><span>REPRESENTATIVE</span>アスユメLabo.代表　岡安一正</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDELINES -->
+  <section class="sec guide" id="guidelines">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label fade">募集要項</span>
+        <h2 class="h-en"><span class="mask"><span>Entry</span></span><span class="mask"><span>Guidelines</span></span></h2>
+      </div>
+      <dl class="guide__list">
+        <div class="guide__row fade">
+          <dt>イベント名<span>EVENT</span></dt>
+          <dd><strong>ATHLETE VALUE FORUM 5 PITCH CONTEST 〜未来へのわだち〜</strong>アスリートバリューフォーラム 5 ピッチコンテスト</dd>
+        </div>
+        <div class="guide__row fade">
+          <dt>応募資格<span>ELIGIBILITY</span></dt>
+          <dd><strong>現役アスリートであること</strong>競技歴、実績は問いません。引退後1年以内まで応募可能です。</dd>
+        </div>
+        <div class="guide__row fade">
+          <dt>参加意義<span>PURPOSE</span></dt>
+          <dd>ATHLETE VALUE を自らの言葉で語ることで、自分の想いと経験と成長を再発見し、新たなアイデンティティを確立する</dd>
+        </div>
+        <div class="guide__row fade">
+          <dt>メリット<span>MERIT</span></dt>
+          <dd>
+            <ul class="merit">
+              <li><b>01</b>自己価値に気づき、アイデンティティを確立できる</li>
+              <li><b>02</b>新しいライバル・仲間・共感者・応援者を得る</li>
+              <li><b>03</b>自信と達成と成功体験を獲得し、競技・キャリアにおけるハイパフォーマンスを実現できる</li>
+            </ul>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="sec schedule" id="schedule">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label fade">スケジュール</span>
+        <h2 class="h-en"><span class="mask"><span>Schedule</span></span></h2>
+      </div>
+      <div class="schedule__body">
+        <div class="phase fade">
+          <div class="phase__name">ENTRY</div>
+          <div>
+            <div class="step">
+              <p class="step__date"><small>2026</small>10.15<span class="w">THU</span></p>
+              <p class="step__txt"><b>応募受付開始</b><span>応募フォームよりエントリー</span></p>
+            </div>
+            <div class="step">
+              <p class="step__date"><small>2026</small>11.14<span class="w">SAT</span></p>
+              <p class="step__txt"><b>応募締切</b><span>11月14日（土）23:59まで受け付けます</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="phase fade">
+          <div class="phase__name">QUALIFIER</div>
+          <div>
+            <div class="step">
+              <p class="step__date"><small>2026</small>12.6-7</p>
+              <p class="step__txt"><b>オンライン予選</b><span>12月6日（日）・7日（月）</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="phase phase--final fade">
+          <div class="phase__name">FINAL</div>
+          <div>
+            <div class="step">
+              <p class="step__date"><small>2027</small>2.20<span class="w">SAT</span></p>
+              <p class="step__txt"><b>本選（ピッチコンテスト）</b><span>docomo R&amp;D OPEN LAB ODAIBA</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMBASSADORS -->
+  <section class="sec amb" id="ambassadors">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label fade">アンバサダー</span>
+        <h2 class="h-en"><span class="mask"><span>Ambassadors</span></span></h2>
+      </div>
+      <p class="amb__lead fade">世界と戦うトップアスリートが、AVF5に挑むあなたを後押しします。</p>
+      <div class="amb__list">
+        <article class="person fade">
+          <div class="person__photo"><img src="assets/baba.webp" alt="馬場龍成" width="600" height="732" loading="lazy"></div>
+          <div class="person__info">
+            <p class="person__role">プロボクサー</p>
+            <h3 class="person__name">馬場 龍成</h3>
+            <p class="person__en">RYUSEI BABA</p>
+            <ul class="person__career">
+              <li>1996年、奈良県出身。EBISU K’s BOX所属。鋭いスピードと冷静な戦術眼を武器に、国内外での活躍を目指す。</li>
+              <li>アマチュア：71戦 45勝 2RSC 26敗</li>
+              <li>プロ：8戦 4勝（1KO） 3敗 1分</li>
+            </ul>
+            <details>
+              <summary>MESSAGE<i>+</i></summary>
+              <p>私自身、“アスリートの価値”に長年悩まされてきました。理由はセカンドキャリア。プロボクサーを引退すればただの人で、なんの価値も生み出せないのではないかという葛藤を抱いていました。<br>しかし、セカンドキャリアではなく、スポーツと並行して仕事にもチャレンジしていく“デュアルキャリア”に切り替えてから、スポーツも仕事も充実するようになりました。<br>ぜひこの体験を今のアスリート、これからの若い世代にも紡いでいきたい。今回のイベントがその第一歩となれば幸いです。</p>
+            </details>
+          </div>
+        </article>
+        <article class="person fade">
+          <div class="person__photo"><img src="assets/yamada.webp" alt="山田優" width="600" height="732" loading="lazy"></div>
+          <div class="person__info">
+            <p class="person__role">プロフェンサー</p>
+            <h3 class="person__name">山田 優</h3>
+            <p class="person__en">MASARU YAMADA</p>
+            <ul class="person__career">
+              <li>2025 世界選手権ジョージア 男子エペ団体金メダル（同種目の日本史上初）・男子エペ個人銅メダル</li>
+              <li>全日本フェンシング選手権2024 エペチャンピオン</li>
+              <li>2024 パリ五輪 男子エペ団体銀メダル</li>
+              <li>2022 アジア杯 男子エペ団体金メダル（大会2連覇）</li>
+              <li>2020 東京五輪 男子エペ団体金メダル</li>
+            </ul>
+            <details>
+              <summary>MESSAGE<i>+</i></summary>
+              <p>私がアスリートバリューフォーラムに参加する理由は、アスリートの可能性を広げるためです。<br>世界の舞台で戦い勝つことはとても嬉しいことですが、それだけではなく、そこまでの過程などを自分の能力としてセカンドキャリアで生かせたら、それはとても素晴らしいことだと思います。<br>自分ができることを知る機会というのは、競技だけをしているとなかなか巡り会えません。環境を変え、アスリートの今後をより良いものにしていくために、参加することを決断しました。</p>
+            </details>
+          </div>
+        </article>
+        <article class="person fade">
+          <div class="person__photo"><img src="assets/morisaki.webp" alt="森崎可南子" width="600" height="732" loading="lazy"></div>
+          <div class="person__info">
+            <p class="person__role">プロテニスプレーヤー</p>
+            <h3 class="person__name">森崎 可南子</h3>
+            <p class="person__en">KANAKO MORISAKI</p>
+            <ul class="person__career">
+              <li>2026 ITF 世界選手権（有明） 日本代表</li>
+              <li>全日本テニス選手権2024 女子ダブルスチャンピオン</li>
+              <li>SAGA2024（国民スポーツ大会）成年女子の部チャンピオン</li>
+              <li>2024 ITF（国際テニス連盟）ツアー5勝</li>
+              <li>2023 テニス日本リーグ 女子チャンピオン</li>
+            </ul>
+            <details>
+              <summary>MESSAGE<i>+</i></summary>
+              <p>アスユメLabo.のコンセプト「あなたのアスのユメを叶えるチカラに。」この言葉の温かさに心惹かれました。<br>ひとりでは大きな力が出せなかったり、道に迷ったりしてしまうことがありますが、誰かと一緒なら自分の想像以上の力を発揮できることがあります。<br>私もアスユメLabo.の一員として、誰かのユメを叶えるチカラになりたいと思いました。<br>「森崎可南子」だからこそ伝えられることをこのイベントでお伝えするとともに、この取り組みを通じて私自身も成長したいと思っています。</p>
+            </details>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENUE -->
+  <section class="sec venue" id="venue">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label fade">会場</span>
+        <h2 class="h-en"><span class="mask"><span>Venue</span></span></h2>
+      </div>
+      <p class="venue__name fade">docomo R&amp;D<br>OPEN LAB ODAIBA</p>
+      <div class="venue__addr fade">
+        <p>東京都港区台場2-3-2<br>台場フロンティアビル 12F</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%AF%E5%8C%BA%E5%8F%B0%E5%A0%B42-3-2+%E5%8F%B0%E5%A0%B4%E3%83%95%E3%83%AD%E3%83%B3%E3%83%86%E3%82%A3%E3%82%A2%E3%83%93%E3%83%AB" target="_blank" rel="noopener">GOOGLE MAP
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 10 10 2M4 2h6v6" stroke="currentColor" stroke-width="1.3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTRY -->
+  <section class="entry" id="entry">
+    <a class="entry__link" href="https://docs.google.com/forms/d/1GWVUTudZDyf0ugoFoFHCzJ8HEdxFntUPBLGadZdWQ8E/viewform" target="_blank" rel="noopener">
+      <div class="entry__inner">
+        <span class="label">出場エントリーはこちら</span>
+        <p class="entry__big"><span class="mask"><span>ENTRY</span></span>
+          <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M2 20h34M24 8l12 12-12 12" stroke="currentColor" stroke-width="3"/></svg>
+        </p>
+        <div class="countdown countdown--entry js-countdown" role="timer" aria-live="off">
+          <p class="countdown__label">応募締切まで<span>11.14（土）23:59</span></p>
+          <p class="countdown__nums">
+            <span><b data-unit="d">--</b><small>DAYS</small></span>
+            <span><b data-unit="h">--</b><small>HRS</small></span>
+            <span><b data-unit="m">--</b><small>MIN</small></span>
+            <span><b data-unit="s">--</b><small>SEC</small></span>
+          </p>
+          <p class="countdown__end" hidden>応募受付は終了しました</p>
+        </div>
+        <dl class="entry__meta">
+          <div><dt>応募期間</dt><dd>2026年10月15日（木）〜 11月14日（土）23:59</dd></div>
+          <div><dt>エントリー費</dt><dd>2万円（2/20イベント参加費含む）</dd></div>
+        </dl>
+      </div>
+    </a>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__logo"><img src="assets/logo.png" alt="アスユメLabo." width="708" height="90" loading="lazy"></div>
+      <div class="footer__links">
+        <a href="https://asuyume-labo.com/">アスユメLabo. トップ</a>
+        <a href="https://asuyume-labo.com/about">岡安の経歴・実績</a>
+        <a href="https://asuyume-labo.com/#contact">お問い合わせ</a>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  requestAnimationFrame(() => {
+    root.classList.add('is-loaded');
+    document.querySelectorAll('.fv .mask, .fv .fade').forEach(el => el.classList.add('is-in'));
+  });
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('is-in');
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -12% 0px' });
+  document.querySelectorAll('.sec .mask, .sec .fade, .entry .mask').forEach(el => io.observe(el));
+
+  const btn = document.querySelector('.menu-btn');
+  const menu = document.querySelector('.sp-menu');
+  const toggle = open => {
+    root.classList.toggle('is-menu', open);
+    menu.setAttribute('aria-hidden', String(!open));
+  };
+  btn.addEventListener('click', () => toggle(!root.classList.contains('is-menu')));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
+
+  const prize = document.querySelector('.js-prize');
+  const prizeTo = Number(prize.dataset.to);
+  const yen = n => n.toLocaleString('ja-JP');
+  const land = () => { prize.textContent = yen(prizeTo); prize.classList.add('is-landed'); };
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    land();
+  } else {
+    prize.textContent = '1';
+    const run = () => {
+      const dur = 2600;
+      const start = performance.now();
+      const step = now => {
+        const p = Math.min(1, (now - start) / dur);
+        const eased = 1 - Math.pow(1 - p, 4);
+        if (p < 1) {
+          prize.textContent = yen(Math.max(1, Math.floor(1 + (prizeTo - 1) * eased)));
+          requestAnimationFrame(step);
+        } else {
+          land();
+        }
+      };
+      requestAnimationFrame(step);
+    };
+    const prizeIo = new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) return;
+      prizeIo.disconnect();
+      setTimeout(run, 300);
+    }, { threshold: .6 });
+    prizeIo.observe(prize.closest('.prize__main'));
+  }
+
+  const deadline = new Date('2026-11-14T23:59:59+09:00').getTime();
+  const boxes = document.querySelectorAll('.js-countdown');
+  const pad = n => String(n).padStart(2, '0');
+  const tick = () => {
+    const left = Math.max(0, deadline - Date.now());
+    const t = Math.floor(left / 1000);
+    const v = { d: Math.floor(t / 86400), h: Math.floor(t / 3600) % 24, m: Math.floor(t / 60) % 60, s: t % 60 };
+    boxes.forEach(box => {
+      box.querySelectorAll('[data-unit]').forEach(el => { el.textContent = pad(v[el.dataset.unit]); });
+      box.querySelector('.countdown__nums').hidden = left === 0;
+      box.querySelector('.countdown__end').hidden = left > 0;
+    });
+    if (left === 0) clearInterval(timer);
+  };
+  const timer = setInterval(tick, 1000);
+  tick();
+})();
+</script>
+</body>
+</html>
