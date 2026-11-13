@@ -202,15 +202,14 @@ main { position: relative; padding-top: var(--head); }
 .winner__photo { grid-column: 2 / 7; overflow: hidden; margin: 0; }
 .winner__photo img { width: 100%; aspect-ratio: 1024 / 696; object-fit: cover; }
 .winner__body { grid-column: 8 / -2; }
-.winner__award { font-size: 13px; font-weight: 700; letter-spacing: .16em; color: var(--gold); }
-.winner__name { font-size: 34px; font-weight: 700; line-height: 1.4; letter-spacing: .1em; margin-top: 6px; }
-.winner__en { font-family: var(--cond); font-size: 15px; letter-spacing: .24em; color: var(--sub); }
-.winner__role { font-size: 13px; color: var(--text); margin-top: 2px; }
-.winner__comment { margin: 36px 0 0; padding: 0; font-size: 19px; font-weight: 500; line-height: 2.05; letter-spacing: .06em; }
+.winner__name { font-size: clamp(44px, 5.6vw, 80px); font-weight: 700; line-height: 1.25; letter-spacing: .1em; }
+.winner__en { margin-top: 10px; font-family: var(--cond); font-size: 17px; letter-spacing: .24em; color: var(--sub); }
+.winner__role { font-size: 14px; color: var(--text); margin-top: 2px; }
+.winner__comment { margin: 0; padding: 0; font-size: 19px; font-weight: 500; line-height: 2.05; letter-spacing: .06em; }
 .winner__src { margin-top: 20px; font-size: 12px; color: var(--sub); }
 
 .gallery { grid-column: 1 / -1; margin-top: 110px; overflow: hidden; display: flex; }
-.gallery__track { list-style: none; margin: 0; padding: 0; display: flex; flex-shrink: 0; animation: gallery 60s linear infinite; }
+.gallery__track { list-style: none; margin: 0; padding: 0; display: flex; flex-shrink: 0; animation: gallery 50s linear infinite; }
 .gallery:hover .gallery__track { animation-play-state: paused; }
 .gallery__slide { flex-shrink: 0; margin-right: 16px; }
 .gallery__slide img { height: 380px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; }
@@ -329,8 +328,9 @@ main { position: relative; padding-top: var(--head); }
 /* ---------- FOOTER ---------- */
 .footer { border-top: 1px solid var(--line); }
 .footer .wrap { padding: 64px 0 72px; align-items: end; }
-.footer__logo { grid-column: 2 / 6; }
+.footer__logo { grid-column: 2 / 6; justify-self: start; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
 .footer__logo img { width: 210px; }
+.footer__logo .footer__support { width: 124px; }
 .footer__links { grid-column: 7 / -2; display: flex; justify-content: flex-end; gap: 32px; font-size: 13px; color: var(--text); }
 .footer__links a:hover { color: var(--gold); }
 
@@ -393,10 +393,11 @@ main { position: relative; padding-top: var(--head); }
   .winner .wrap { padding-bottom: 96px; }
   .winner__photo { grid-column: 1 / -1; }
   .winner__body { grid-column: 1 / -1; padding: 28px 20px 0; }
-  .winner__name { font-size: 28px; }
-  .winner__comment { margin-top: 24px; font-size: 16px; }
+  .winner__name { font-size: min(11vw, 52px); }
+  .winner__en { font-size: 15px; }
+  .winner__comment { font-size: 16px; }
   .gallery { margin-top: 72px; }
-  .gallery__track { animation-duration: 40s; }
+  .gallery__track { animation-duration: 33.3s; }
   .gallery__slide { margin-right: 10px; }
   .gallery__slide img { height: 200px; }
 
@@ -529,7 +530,7 @@ main { position: relative; padding-top: var(--head); }
         <a class="btn-entry" href="#entry">
           <span>
             <b>出場アスリート募集中</b>
-            <small>応募期間 2026.10.15（木）〜 11.14（土）23:59</small>
+            <small>応募期間 2026.10.15（木）〜 12.6（日）23:59</small>
             <small class="js-countdown" role="timer" aria-live="off"><span class="countdown__nums">締切まであと <b data-unit="d">--</b>日 <b data-unit="h">--</b>:<b data-unit="m">--</b>:<b data-unit="s">--</b></span><span class="countdown__end" hidden>応募受付は終了しました</span></small>
           </span>
           <svg width="28" height="14" viewBox="0 0 28 14" fill="none" aria-hidden="true"><path d="M0 7h26M20 1l6 6-6 6" stroke="currentColor" stroke-width="1.6"/></svg>
@@ -573,15 +574,13 @@ main { position: relative; padding-top: var(--head); }
   <section class="sec winner" id="winner">
     <div class="wrap">
       <div class="sec__head">
-        <span class="label fade">前回優勝者</span>
-        <h2 class="h-en"><span class="mask"><span>Winner</span></span></h2>
+        <span class="label fade">AVF4 最優秀賞</span>
+        <h2 class="winner__name"><span class="mask"><span>下澤 悠太</span></span></h2>
+        <p class="winner__en fade">YUTA SHIMOZAWA</p>
+        <p class="winner__role fade">プロサッカー選手</p>
       </div>
       <figure class="winner__photo fade"><img src="assets/shimozawa_pitch.jpg" alt="AVF4でピッチをする下澤悠太選手" width="1024" height="696" loading="lazy"></figure>
       <div class="winner__body fade">
-        <p class="winner__award">AVF4 最優秀賞</p>
-        <h3 class="winner__name">下澤 悠太</h3>
-        <p class="winner__en">YUTA SHIMOZAWA</p>
-        <p class="winner__role">プロサッカー選手</p>
         <blockquote class="winner__comment">自分の競技人生を改めて振り返り、言葉にすることで、これまでの経験がどんな価値を持っていたのか整理することができました。この経験をこれからの競技や活動にも活かしていきたいと思います。</blockquote>
         <p class="winner__src">ATHLETE VALUE FORUM 4（2026.1.10）より</p>
       </div>
@@ -672,17 +671,17 @@ main { position: relative; padding-top: var(--head); }
               <p class="step__txt"><b>応募受付開始</b><span>応募フォームよりエントリー</span></p>
             </div>
             <div class="step">
-              <p class="step__date"><small>2026</small>11.14<span class="w">SAT</span></p>
-              <p class="step__txt"><b>応募締切</b><span>11月14日（土）23:59まで受け付けます</span></p>
+              <p class="step__date"><small>2026</small>12.6<span class="w">SUN</span></p>
+              <p class="step__txt"><b>応募締切</b><span>12月6日（日）23:59まで受け付けます</span></p>
             </div>
           </div>
         </div>
         <div class="phase fade">
-          <div class="phase__name">QUALIFIER</div>
+          <div class="phase__name">SCREENING</div>
           <div>
             <div class="step">
-              <p class="step__date"><small>2026</small>12.6-7</p>
-              <p class="step__txt"><b>オンライン予選</b><span>12月6日（日）・7日（月）</span></p>
+              <p class="step__date"><small>2026</small>DEC.</p>
+              <p class="step__txt"><b>書類審査</b><span>応募締切後に書類審査を行い、本選出場者へご連絡します</span></p>
             </div>
           </div>
         </div>
@@ -793,7 +792,7 @@ main { position: relative; padding-top: var(--head); }
           <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M2 20h34M24 8l12 12-12 12" stroke="currentColor" stroke-width="3"/></svg>
         </p>
         <div class="countdown countdown--entry js-countdown" role="timer" aria-live="off">
-          <p class="countdown__label">応募締切まで<span>11.14（土）23:59</span></p>
+          <p class="countdown__label">応募締切まで<span>12.6（日）23:59</span></p>
           <p class="countdown__nums">
             <span><b data-unit="d">--</b><small>DAYS</small></span>
             <span><b data-unit="h">--</b><small>HRS</small></span>
@@ -803,7 +802,7 @@ main { position: relative; padding-top: var(--head); }
           <p class="countdown__end" hidden>応募受付は終了しました</p>
         </div>
         <dl class="entry__meta">
-          <div><dt>応募期間</dt><dd>2026年10月15日（木）〜 11月14日（土）23:59</dd></div>
+          <div><dt>応募期間</dt><dd>2026年10月15日（木）〜 12月6日（日）23:59</dd></div>
           <div><dt>エントリー費</dt><dd>2万円（2/20イベント参加費含む）</dd></div>
         </dl>
       </div>
@@ -812,7 +811,10 @@ main { position: relative; padding-top: var(--head); }
 
   <footer class="footer">
     <div class="wrap">
-      <div class="footer__logo"><img src="assets/logo.png" alt="アスユメLabo." width="708" height="90" loading="lazy"></div>
+      <div class="footer__logo">
+        <img src="assets/logo.png" alt="アスユメLabo." width="708" height="90" loading="lazy">
+        <img class="footer__support" src="assets/supported_docomo.png" alt="supported by NTT docomo" width="435" height="53" loading="lazy">
+      </div>
       <div class="footer__links">
         <a href="https://asuyume-labo.com/">アスユメLabo. トップ</a>
         <a href="https://asuyume-labo.com/about">岡安の経歴・実績</a>
@@ -898,7 +900,7 @@ main { position: relative; padding-top: var(--head); }
     prizeIo.observe(prize.closest('.prize__main'));
   }
 
-  const deadline = new Date('2026-11-14T23:59:59+09:00').getTime();
+  const deadline = new Date('2026-12-06T23:59:59+09:00').getTime();
   const boxes = document.querySelectorAll('.js-countdown');
   const pad = n => String(n).padStart(2, '0');
   const tick = () => {
