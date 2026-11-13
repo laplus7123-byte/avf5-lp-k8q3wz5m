@@ -150,7 +150,7 @@ main { position: relative; padding-top: var(--head); }
 .fv__num > span { transform: scale(2.2); opacity: 0; transition: transform .42s cubic-bezier(.7, 0, .84, 0) .28s, opacity .15s linear .28s; }
 .fv__num.is-in > span { transform: none; opacity: 1; }
 .fv__row { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 40px; }
-.fv__brand { width: min(27vw, 36svh, 420px); display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.fv__brand { width: min(27vw, 36svh, 420px); display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .fv__logo { width: 100%; }
 .fv__support { width: 54%; }
 .fv__sub { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; }
@@ -216,7 +216,13 @@ main { position: relative; padding-top: var(--head); }
 @keyframes gallery { to { transform: translateX(-100%); } }
 
 /* ---------- CONCEPT ---------- */
-.concept__body { grid-column: 5 / -2; padding-bottom: 140px; }
+.concept__photo { grid-column: 8 / -1; grid-row: 2; align-self: start; position: sticky; top: calc(var(--head) + 48px); margin: 0 0 140px; overflow: hidden; }
+.concept__photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 86% 50%; filter: grayscale(1); transition: filter .8s ease; }
+.concept__photo:hover img { filter: none; }
+@media (hover: none) {
+  .concept__photo.is-in img { filter: none; transition-delay: .8s; }
+}
+.concept__body { grid-column: 2 / 7; grid-row: 2; padding-bottom: 140px; }
 .concept__body p { color: var(--text); font-size: 16px; line-height: 2.25; }
 .concept__body p + p { margin-top: 1.6em; }
 .concept__sign { margin-top: 48px !important; color: var(--fg) !important; font-weight: 500; }
@@ -401,7 +407,9 @@ main { position: relative; padding-top: var(--head); }
   .gallery__slide { margin-right: 10px; }
   .gallery__slide img { height: 200px; }
 
-  .concept__body { grid-column: 1 / -1; padding: 0 20px 96px; }
+  .concept__photo { grid-column: 1 / -1; grid-row: auto; position: static; margin: 0 0 36px; }
+  .concept__photo img { aspect-ratio: 4 / 3; object-position: 80% 50%; }
+  .concept__body { grid-column: 1 / -1; grid-row: auto; padding: 0 20px 96px; }
   .concept__body p { font-size: 15px; }
 
   .guide__list { grid-column: 1 / -1; margin: 0 20px 96px; }
@@ -611,6 +619,7 @@ main { position: relative; padding-top: var(--head); }
         <span class="label fade">AVF5について</span>
         <h2 class="h-en"><span class="mask"><span>Concept</span></span></h2>
       </div>
+      <figure class="concept__photo fade"><img src="assets/okayasu.jpg" alt="アスユメLabo.代表 岡安一正" width="1024" height="576" loading="lazy"></figure>
       <div class="concept__body fade">
         <p>AVF4は、ピッチイベントというアスユメLabo.としての初の挑戦となりました。開催に至るまでは、成功できるのか？という不安な気持ちに苛まれながらも、現役のアスリートの熱い想いと価値を多くの方に届けるというミッションを信じながら無我夢中で準備を進めてまいりました。イベントはご存じの通りの大成功。次回への声援も多くいただきました。</p>
         <p>しかし何よりも、登壇アスリートがピッチを通して大きく成長し、実績を重ね全選手が自分の新しい扉を開き、現在もその活躍を続けていることに主催者として喜びと大きな誇りを感じております。</p>
