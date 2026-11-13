@@ -358,7 +358,8 @@ main { position: relative; padding-top: var(--head); }
   .sp-menu a span { display: block; font-family: var(--ja); font-size: 12px; font-weight: 500; color: var(--gold); letter-spacing: .14em; margin-top: 8px; }
 
   .sec__head { padding: 88px 20px 40px; }
-  .h-en { font-size: 12vw; }
+  /* 最長の AMBASSADORS（約7.6em）が左右20pxの余白の内側に収まる大きさ */
+  .h-en { font-size: min(12vw, calc((100vw - 40px) / 8)); }
   .fv__phoenix { width: 120vw; right: -38vw; top: 4%; }
   .is-loaded .fv__phoenix { opacity: .34; }
   .fv__athletes { display: none; }
@@ -385,7 +386,8 @@ main { position: relative; padding-top: var(--head); }
 
   .message .wrap { padding: 96px 20px 104px; }
   .message__copy, .message__lead { grid-column: 1 / -1; }
-  .message__copy { font-size: 9.4vw; }
+  /* 1行9文字＋字間 .06em を余白の内側に収める */
+  .message__copy { font-size: min(9.4vw, calc((100vw - 40px) / 9.8)); }
   .message__lead { margin-top: 36px; font-size: 15px; }
 
   .winner .wrap { padding-bottom: 96px; }
@@ -438,8 +440,8 @@ main { position: relative; padding-top: var(--head); }
   .entry__big { font-size: 19vw; gap: 16px; }
   .entry__big svg { width: .36em; height: .36em; flex-shrink: 0; }
   .countdown--entry { margin-top: 32px; padding-top: 24px; }
-  .countdown--entry .countdown__nums { gap: 12px; }
-  .countdown--entry .countdown__nums b { font-size: 38px; }
+  .countdown--entry .countdown__nums { gap: min(12px, 2.6vw); }
+  .countdown--entry .countdown__nums b { font-size: min(38px, 10vw); }
   .countdown--entry .countdown__nums small { font-size: 11px; margin-left: 3px; }
   .entry__meta { flex-direction: column; gap: 10px; margin-top: 28px; }
   .entry__meta div { flex-direction: column; gap: 0; }
