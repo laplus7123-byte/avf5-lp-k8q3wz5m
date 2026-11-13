@@ -139,7 +139,7 @@ main { position: relative; padding-top: var(--head); }
 .fv__athletes-sp { display: none; }
 .fv__body {
   position: relative; z-index: 1; grid-area: 1 / 2 / 2 / -2; align-self: center;
-  padding: 32px 0;
+  padding: 26px 0;
 }
 .fv__eyebrow { font-family: var(--cond); font-size: 15px; letter-spacing: .3em; color: var(--gold); margin-bottom: 18px; }
 .fv__title { display: flex; align-items: last baseline; gap: .08em; font-family: var(--en); font-weight: 800; font-size: var(--fs); text-transform: uppercase; }
@@ -149,8 +149,10 @@ main { position: relative; padding-top: var(--head); }
 .fv__num.mask { overflow: visible; }
 .fv__num > span { transform: scale(2.2); opacity: 0; transition: transform .42s cubic-bezier(.7, 0, .84, 0) .28s, opacity .15s linear .28s; }
 .fv__num.is-in > span { transform: none; opacity: 1; }
-.fv__row { margin-top: 56px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 40px; }
-.fv__logo { width: min(30vw, 48svh, 420px); }
+.fv__row { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 40px; }
+.fv__brand { width: min(27vw, 36svh, 420px); display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.fv__logo { width: 100%; }
+.fv__support { width: 54%; }
 .fv__sub { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 22px; }
 .countdown__label { font-size: 13px; font-weight: 700; letter-spacing: .14em; color: var(--gold); line-height: 1.4; }
 .countdown__label span { margin-left: 10px; font-weight: 500; color: var(--text); }
@@ -365,7 +367,7 @@ main { position: relative; padding-top: var(--head); }
   .fv__eyebrow { font-size: 12px; letter-spacing: .22em; margin-bottom: 16px; }
   .fv__title { position: relative; z-index: 1; font-size: 12vw; }
   .fv__row { position: relative; z-index: 1; margin-top: -10vw; gap: 28px; }
-  .fv__logo { width: 200px; }
+  .fv__brand { width: 240px; gap: 10px; }
   .fv__sub { flex-direction: column; gap: 4px; }
   .countdown__label span { display: block; margin: 2px 0 0; }
   .countdown__nums { gap: 12px; }
@@ -512,7 +514,10 @@ main { position: relative; padding-top: var(--head); }
           <span class="fv__sub-en">PITCH CONTEST</span>
           <span class="fv__sub-ja">〜未来へのわだち〜</span>
         </div>
-        <img class="fv__logo fade" src="assets/logo.png" alt="アスユメLabo." width="708" height="90">
+        <div class="fv__brand fade">
+          <img class="fv__logo" src="assets/logo_en.png" alt="ASUYUME LABO." width="1004" height="109">
+          <img class="fv__support" src="assets/supported_docomo.png" alt="supported by NTT docomo" width="435" height="53">
+        </div>
       </div>
     </div>
     <div class="fv__foot">
