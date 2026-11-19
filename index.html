@@ -1145,12 +1145,16 @@ main { position: relative; padding-top: var(--head); }
       const prefix = box.querySelector('[data-cd-prefix]');
       if (phase === 'closed') {
         if (nums) nums.hidden = true;
+        if (label) label.hidden = true;
+        if (date) date.hidden = true;
         if (end) {
           end.hidden = false;
           end.textContent = '申し込みは終了しました';
         }
       } else {
         if (nums) nums.hidden = false;
+        if (label) label.hidden = false;
+        if (date) date.hidden = false;
         if (end) end.hidden = true;
         box.querySelectorAll('[data-unit]').forEach(el => { el.textContent = pad(v[el.dataset.unit]); });
         if (phase === 'before') {
