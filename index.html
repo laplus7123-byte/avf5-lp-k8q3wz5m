@@ -189,23 +189,7 @@ main { position: relative; padding-top: var(--head); }
 .btn-entry:hover svg { transform: translateX(6px); }
 
 /* ---------- MESSAGE ---------- */
-.message {
-  position: relative;
-  overflow: hidden;
-}
-.message__bg {
-  position: absolute; inset: 0; z-index: 0;
-  pointer-events: none;
-}
-.message__bg img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center 20%;
-  opacity: .3; display: block;
-}
-.message .wrap {
-  position: relative; z-index: 1;
-  padding: 150px 0 160px;
-}
+.message .wrap { padding: 150px 0 0; }
 .message__copy {
   grid-column: 2 / -2;
   font-weight: 700; font-size: clamp(34px, 6vw, 84px); line-height: 1.32; letter-spacing: .06em;
@@ -216,6 +200,7 @@ main { position: relative; padding-top: var(--head); }
   grid-column: 2 / 9; margin-top: 56px;
   font-size: 16px; line-height: 2.2; color: var(--text);
 }
+.message .gallery { margin-top: 72px; margin-bottom: 160px; }
 
 /* ---------- WINNER ---------- */
 .winner .wrap { padding-bottom: 140px; align-items: end; }
@@ -228,11 +213,11 @@ main { position: relative; padding-top: var(--head); }
 .winner__comment { margin: 0; padding: 0; font-size: 19px; font-weight: 500; line-height: 2.05; letter-spacing: .06em; }
 .winner__src { margin-top: 20px; font-size: 12px; color: var(--sub); }
 
-.gallery { grid-column: 1 / -1; margin-top: 110px; overflow: hidden; display: flex; }
+.gallery { grid-column: 1 / -1; overflow: hidden; display: flex; }
 .gallery__track { list-style: none; margin: 0; padding: 0; display: flex; flex-shrink: 0; animation: gallery 50s linear infinite; }
 .gallery:hover .gallery__track { animation-play-state: paused; }
 .gallery__slide { flex-shrink: 0; margin-right: 16px; }
-.gallery__slide img { height: 380px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.gallery__slide img { height: 380px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
 @keyframes gallery { to { transform: translateX(-100%); } }
 
 /* ---------- CONCEPT ---------- */
@@ -510,11 +495,11 @@ main { position: relative; padding-top: var(--head); }
   .fv__cta { grid-column: 1 / -1; }
   .btn-entry { padding: 18px 20px; }
 
-  .message .wrap { padding: 96px 20px 104px; }
+  .message .wrap { padding: 96px 20px 0; }
   .message__copy, .message__lead { grid-column: 1 / -1; }
   .message__copy { font-size: min(8.2vw, calc((100vw - 40px) / 14.5)); }
   .message__lead { margin-top: 36px; font-size: 15px; }
-  .message__bg img { object-position: center 15%; }
+  .message .gallery { margin: 48px -20px 104px; }
 
   .winner .wrap { padding-bottom: 96px; }
   .winner__photo { grid-column: 1 / -1; }
@@ -522,7 +507,6 @@ main { position: relative; padding-top: var(--head); }
   .winner__name { font-size: min(11vw, 52px); }
   .winner__en { font-size: 15px; }
   .winner__comment { font-size: 16px; }
-  .gallery { margin-top: 72px; }
   .gallery__track { animation-duration: 33.3s; }
   .gallery__slide { margin-right: 10px; }
   .gallery__slide img { height: 200px; }
@@ -692,15 +676,30 @@ main { position: relative; padding-top: var(--head); }
 
   <!-- MESSAGE -->
   <section class="sec message">
-    <div class="message__bg" aria-hidden="true">
-      <img src="assets/shimozawa_pitch.jpg" alt="" width="1024" height="696" loading="lazy">
-    </div>
     <div class="wrap">
       <h2 class="message__copy">
         <span class="mask"><span>言葉にすることが、</span></span>
         <span class="mask"><span><em>キャリアの強みに。</em></span></span>
       </h2>
       <p class="message__lead fade">今回は<strong style="color:var(--gold);font-weight:700">U-23（23歳以下）の学生大会</strong>として追加募集します。実績は問いません。<br>競技で積み上げた経験を自分の言葉で語り、これからの進路につなげるピッチコンテストです。</p>
+      <div class="gallery fade" aria-label="AVF4の写真">
+        <ul class="gallery__track">
+          <li class="gallery__slide"><img src="assets/avf4_01.jpg" alt="AVF4 表彰後の集合写真" width="1024" height="668" loading="lazy"></li>
+          <li class="gallery__slide"><img src="assets/avf4_02.jpg" alt="AVF4 登壇アスリートのピッチ" width="1024" height="680" loading="lazy"></li>
+          <li class="gallery__slide"><img src="assets/shimozawa_pitch.jpg" alt="AVF4 ピッチの様子" width="1024" height="696" loading="lazy"></li>
+          <li class="gallery__slide"><img src="assets/avf4_03.jpg" alt="アンバサダー 馬場龍成選手" width="1024" height="677" loading="lazy"></li>
+          <li class="gallery__slide"><img src="assets/avf4_04.jpg" alt="AVF4 会場の来場者" width="1024" height="691" loading="lazy"></li>
+          <li class="gallery__slide"><img src="assets/avf4_05.jpg" alt="AVF4 会場の様子" width="1024" height="682" loading="lazy"></li>
+        </ul>
+        <ul class="gallery__track" aria-hidden="true">
+          <li class="gallery__slide"><img src="assets/avf4_01.jpg" alt="" width="1024" height="668" loading="lazy"></li>
+          <li class="gallery__slide"><img src="assets/avf4_02.jpg" alt="" width="1024" height="680" loading="lazy"></li>
+          <li class="gallery__slide"><img src="assets/shimozawa_pitch.jpg" alt="" width="1024" height="696" loading="lazy"></li>
+          <li class="gallery__slide"><img src="assets/avf4_03.jpg" alt="" width="1024" height="677" loading="lazy"></li>
+          <li class="gallery__slide"><img src="assets/avf4_04.jpg" alt="" width="1024" height="691" loading="lazy"></li>
+          <li class="gallery__slide"><img src="assets/avf4_05.jpg" alt="" width="1024" height="682" loading="lazy"></li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -740,23 +739,6 @@ main { position: relative; padding-top: var(--head); }
       <div class="winner__body fade">
         <blockquote class="winner__comment">自分の競技人生を改めて振り返り、言葉にすることで、これまでの経験がどんな価値を持っていたのか整理することができました。この経験をこれからの競技や活動にも活かしていきたいと思います。</blockquote>
         <p class="winner__src">ATHLETE VALUE FORUM 4（2026.1.10）より</p>
-      </div>
-
-      <div class="gallery fade" aria-label="AVF4の写真">
-        <ul class="gallery__track">
-          <li class="gallery__slide"><img src="assets/avf4_01.jpg" alt="AVF4 表彰後の集合写真" width="1024" height="668"></li>
-          <li class="gallery__slide"><img src="assets/avf4_02.jpg" alt="AVF4 登壇アスリートのピッチ" width="1024" height="680"></li>
-          <li class="gallery__slide"><img src="assets/avf4_03.jpg" alt="アンバサダー 馬場龍成選手" width="1024" height="677"></li>
-          <li class="gallery__slide"><img src="assets/avf4_04.jpg" alt="AVF4 会場の来場者" width="1024" height="691"></li>
-          <li class="gallery__slide"><img src="assets/avf4_05.jpg" alt="AVF4 会場の様子" width="1024" height="682"></li>
-        </ul>
-        <ul class="gallery__track" aria-hidden="true">
-          <li class="gallery__slide"><img src="assets/avf4_01.jpg" alt="" width="1024" height="668"></li>
-          <li class="gallery__slide"><img src="assets/avf4_02.jpg" alt="" width="1024" height="680"></li>
-          <li class="gallery__slide"><img src="assets/avf4_03.jpg" alt="" width="1024" height="677"></li>
-          <li class="gallery__slide"><img src="assets/avf4_04.jpg" alt="" width="1024" height="691"></li>
-          <li class="gallery__slide"><img src="assets/avf4_05.jpg" alt="" width="1024" height="682"></li>
-        </ul>
       </div>
     </div>
   </section>
