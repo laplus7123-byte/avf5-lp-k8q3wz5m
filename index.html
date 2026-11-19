@@ -229,17 +229,38 @@ main { position: relative; padding-top: var(--head); }
 .concept__sign span { display: block; font-family: var(--cond); font-size: 13px; letter-spacing: .2em; color: var(--sub); }
 
 /* ---------- GUIDELINES ---------- */
-.guide__list { grid-column: 2 / -2; margin: 0 0 140px; }
+.guide__list { grid-column: 2 / -2; margin: 0 0 72px; }
 .guide__row { display: grid; grid-template-columns: repeat(10, 1fr); border-top: 1px solid var(--line); padding: 40px 0; }
 .guide__row:last-child { border-bottom: 1px solid var(--line); }
 .guide__row dt { grid-column: 1 / 4; font-weight: 700; font-size: 17px; line-height: 1.5; }
 .guide__row dt span { display: block; font-family: var(--cond); font-weight: 400; font-size: 13px; letter-spacing: .2em; color: var(--gold); margin-top: 4px; }
 .guide__row dd { grid-column: 4 / -1; margin: 0; color: var(--text); font-size: 16px; }
 .guide__row dd strong { color: var(--fg); font-size: 19px; font-weight: 700; display: block; line-height: 1.6; }
-.merit { list-style: none; margin: 0; padding: 0; }
-.merit li { display: grid; grid-template-columns: 64px 1fr; align-items: baseline; line-height: 1.8; padding: 4px 0; }
-.merit li + li { margin-top: 14px; }
-.merit b { font-family: var(--en); font-weight: 700; font-size: 32px; line-height: 1; color: var(--gold); }
+.merit {
+  list-style: none; margin: 0 0 140px; padding: 0;
+  grid-column: 2 / -2;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.merit li {
+  display: flex; flex-direction: column; gap: 18px;
+  padding: 36px 28px 40px; background: #111;
+  min-width: 0;
+}
+.merit__icon {
+  width: 56px; height: 56px; color: var(--gold);
+}
+.merit__icon svg { display: block; width: 100%; height: 100%; }
+.merit__num {
+  font-family: var(--en); font-weight: 700; font-size: 18px;
+  letter-spacing: .16em; color: var(--gold); line-height: 1;
+}
+.merit__title {
+  margin: 0; font-size: clamp(24px, 2.2vw, 34px); font-weight: 700;
+  line-height: 1.35; letter-spacing: .04em; word-break: keep-all;
+}
+.merit__txt {
+  margin: 0; color: var(--text); font-size: 15px; line-height: 1.9; letter-spacing: .04em;
+}
 
 /* ---------- SCHEDULE ---------- */
 .schedule .wrap { padding-bottom: 140px; }
@@ -399,8 +420,8 @@ main { position: relative; padding-top: var(--head); }
 
   .message .wrap { padding: 96px 20px 104px; }
   .message__copy, .message__lead { grid-column: 1 / -1; }
-  /* 1行9文字＋字間 .06em を余白の内側に収める */
-  .message__copy { font-size: min(9.4vw, calc((100vw - 40px) / 9.8)); }
+  /* 長い行（最大14文字前後）が余白の内側に収まる大きさ */
+  .message__copy { font-size: min(8.2vw, calc((100vw - 40px) / 14.5)); }
   .message__lead { margin-top: 36px; font-size: 15px; }
 
   .winner .wrap { padding-bottom: 96px; }
@@ -422,8 +443,11 @@ main { position: relative; padding-top: var(--head); }
   .guide__list { grid-column: 1 / -1; margin: 0 20px 96px; }
   .guide__row { grid-template-columns: 1fr; gap: 14px; padding: 28px 0; }
   .guide__row dt, .guide__row dd { grid-column: 1 / -1; }
-  .merit li { grid-template-columns: 48px 1fr; }
-  .merit b { font-size: 26px; }
+  .merit { grid-column: 1 / -1; margin: 0 20px 96px; grid-template-columns: 1fr; gap: 14px; }
+  .merit li { padding: 28px 22px 32px; gap: 14px; }
+  .merit__icon { width: 48px; height: 48px; }
+  .merit__title { font-size: 24px; }
+  .merit__txt { font-size: 14px; }
 
   .schedule .wrap { padding-bottom: 96px; }
   .schedule__body { grid-column: 1 / -1; padding: 0 20px; }
@@ -563,11 +587,11 @@ main { position: relative; padding-top: var(--head); }
   <section class="sec message">
     <div class="wrap">
       <h2 class="message__copy">
-        <span class="mask"><span>あなたの熱き魂を、</span></span>
+        <span class="mask"><span>試合で戦ってきた経験を、</span></span>
         <span class="mask"><span>言葉に変えろ。</span></span>
-        <span class="mask"><span><em>未来への轍を刻め。</em></span></span>
+        <span class="mask"><span><em>次のフィールドは、ここだ。</em></span></span>
       </h2>
-      <p class="message__lead fade">今回は<strong style="color:var(--gold);font-weight:700">U-23（23歳以下）の学生大会</strong>として追加募集します。競技歴や実績は問いません。競技を通じて培ってきた経験を、これからの社会でどう生かすか。<br>アスリートが自らの価値と未来を、自分の言葉で語るピッチコンテストです。</p>
+      <p class="message__lead fade">今回は<strong style="color:var(--gold);font-weight:700">U-23（23歳以下）の学生大会</strong>として追加募集します。実績は問いません。<br>競技で積み上げた経験を自分の言葉で語り、これからの進路につなげるピッチコンテストです。</p>
     </div>
   </section>
 
@@ -668,19 +692,35 @@ main { position: relative; padding-top: var(--head); }
         </div>
         <div class="guide__row fade">
           <dt>参加意義<span>PURPOSE</span></dt>
-          <dd>ATHLETE VALUE を自らの言葉で語ることで、自分の想いと経験と成長を再発見し、新たなアイデンティティを確立する</dd>
-        </div>
-        <div class="guide__row fade">
-          <dt>メリット<span>MERIT</span></dt>
-          <dd>
-            <ul class="merit">
-              <li><b>01</b>自己価値に気づき、アイデンティティを確立できる</li>
-              <li><b>02</b>新しいライバル・仲間・共感者・応援者を得る</li>
-              <li><b>03</b>自信と達成と成功体験を獲得し、競技・キャリアにおけるハイパフォーマンスを実現できる</li>
-            </ul>
-          </dd>
+          <dd><strong>競技経験を言葉にし、次の一歩をはっきりさせる</strong>自分の強みと、これから進みたい道が見えてきます。</dd>
         </div>
       </dl>
+      <ul class="merit" aria-label="参加するメリット">
+        <li class="fade">
+          <span class="merit__icon" aria-hidden="true">
+            <svg viewBox="0 0 56 56" fill="none"><path d="M18 24v4c0 5.5 4.5 10 10 10s10-4.5 10-10v-4M28 38v6M22 44h12" stroke="currentColor" stroke-width="2"/><rect x="20" y="12" width="16" height="22" rx="8" stroke="currentColor" stroke-width="2"/></svg>
+          </span>
+          <span class="merit__num">01</span>
+          <p class="merit__title">自分の強みが、言葉になる</p>
+          <p class="merit__txt">試合で積み上げた経験を整理すると、「自分にしか言えないこと」が見えてきます。</p>
+        </li>
+        <li class="fade">
+          <span class="merit__icon" aria-hidden="true">
+            <svg viewBox="0 0 56 56" fill="none"><circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="2"/><circle cx="36" cy="20" r="6" stroke="currentColor" stroke-width="2"/><circle cx="28" cy="34" r="6" stroke="currentColor" stroke-width="2"/><path d="M12 42c1.5-5 5-8 8-8M36 34c3 0 6.5 3 8 8M22 26c2 1.5 4 2.5 6 2.5s4-1 6-2.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <span class="merit__num">02</span>
+          <p class="merit__title">同じ熱量の仲間と出会える</p>
+          <p class="merit__txt">ライバル、仲間、共感者、応援者。競技の外でもつながれる人に出会えます。</p>
+        </li>
+        <li class="fade">
+          <span class="merit__icon" aria-hidden="true">
+            <svg viewBox="0 0 56 56" fill="none"><path d="M14 38 26 22l8 10 8-16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 16h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span class="merit__num">03</span>
+          <p class="merit__title">自信が、次の一歩になる</p>
+          <p class="merit__txt">「言葉にできた」経験が、競技でも進路でも、一段上の挑戦につながります。</p>
+        </li>
+      </ul>
     </div>
   </section>
 
