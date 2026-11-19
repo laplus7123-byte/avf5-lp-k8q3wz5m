@@ -215,7 +215,6 @@ main { position: relative; padding-top: var(--head); }
 
 .gallery { grid-column: 1 / -1; overflow: hidden; display: flex; }
 .gallery__track { list-style: none; margin: 0; padding: 0; display: flex; flex-shrink: 0; animation: gallery 50s linear infinite; }
-.gallery:hover .gallery__track { animation-play-state: paused; }
 .gallery__slide { flex-shrink: 0; margin-right: 16px; }
 .gallery__slide img { height: 380px; width: auto; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
 @keyframes gallery { to { transform: translateX(-100%); } }
