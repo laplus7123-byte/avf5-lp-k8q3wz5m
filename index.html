@@ -337,6 +337,50 @@ main { position: relative; padding-top: var(--head); }
 .venue__addr a { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; font-family: var(--cond); font-size: 15px; letter-spacing: .2em; color: var(--fg); border-bottom: 1px solid var(--fg); line-height: 1.6; transition: color .2s, border-color .2s; }
 .venue__addr a:hover { color: var(--gold); border-color: var(--gold); }
 
+/* ---------- FAQ / CONTACT ---------- */
+.faq__lead {
+  grid-column: 2 / -2; margin: -8px 0 56px;
+  font-size: clamp(22px, 3.2vw, 40px); font-weight: 700; line-height: 1.55; letter-spacing: .04em;
+  word-break: keep-all;
+}
+.faq__lead em { font-style: normal; color: var(--gold); }
+.faq__list { grid-column: 2 / -2; margin: 0 0 72px; border-top: 1px solid var(--line); }
+.faq__item { border-bottom: 1px solid var(--line); }
+.faq__item summary {
+  list-style: none; cursor: pointer; display: flex; align-items: flex-start; justify-content: space-between; gap: 24px;
+  padding: 28px 0; font-size: clamp(17px, 1.5vw, 22px); font-weight: 700; line-height: 1.55; letter-spacing: .04em;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary i {
+  flex-shrink: 0; width: 22px; height: 22px; margin-top: .15em; position: relative;
+}
+.faq__item summary i::before, .faq__item summary i::after {
+  content: ""; position: absolute; background: var(--gold); left: 50%; top: 50%;
+}
+.faq__item summary i::before { width: 100%; height: 2px; transform: translate(-50%, -50%); }
+.faq__item summary i::after { width: 2px; height: 100%; transform: translate(-50%, -50%); transition: transform .25s; }
+.faq__item[open] summary i::after { transform: translate(-50%, -50%) rotate(90deg); }
+.faq__item p {
+  margin: 0 0 28px; max-width: 42em; color: var(--text);
+  font-size: 15px; line-height: 2; letter-spacing: .04em;
+}
+.faq__contact {
+  grid-column: 2 / -2; margin: 0 0 140px; padding: 40px 0 0; border-top: 1px solid var(--line);
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px 56px; align-items: end;
+}
+.faq__contact-label { display: block; font-size: 13px; font-weight: 700; letter-spacing: .16em; color: var(--gold); margin-bottom: 14px; }
+.faq__contact-copy { margin: 0; font-size: clamp(24px, 3vw, 40px); font-weight: 700; line-height: 1.4; letter-spacing: .04em; word-break: keep-all; }
+.faq__contact-note { margin: 16px 0 0; color: var(--text); font-size: 15px; line-height: 1.9; }
+.faq__contact-btn {
+  justify-self: end; display: inline-flex; align-items: center; justify-content: space-between; gap: 24px;
+  min-width: min(100%, 320px); padding: 22px 26px; background: var(--gold); color: #000;
+  font-weight: 700; font-size: 16px; letter-spacing: .1em; transition: background .25s;
+}
+.faq__contact-btn:hover { background: var(--fg); }
+.faq__contact-btn small { display: block; margin-top: 4px; font-size: 12px; font-weight: 500; letter-spacing: .06em; }
+.faq__contact-btn svg { flex-shrink: 0; transition: transform .25s; }
+.faq__contact-btn:hover svg { transform: translateX(6px); }
+
 /* ---------- ENTRY ---------- */
 .entry { border-top: 1px solid var(--line); }
 .entry__link { display: grid; grid-template-columns: repeat(var(--cols), 1fr); padding: 120px 0 110px; transition: background .4s, color .4s; }
@@ -474,6 +518,14 @@ main { position: relative; padding-top: var(--head); }
   .venue__name, .venue__addr { grid-column: 1 / -1; margin-left: 20px; margin-right: 20px; }
   .venue__addr { margin-top: 24px; }
 
+  .faq__lead, .faq__list, .faq__contact { grid-column: 1 / -1; margin-left: 20px; margin-right: 20px; }
+  .faq__lead { margin-top: 0; margin-bottom: 40px; font-size: 7.2vw; }
+  .faq__list { margin-bottom: 48px; }
+  .faq__item summary { padding: 22px 0; font-size: 16px; gap: 16px; }
+  .faq__item p { font-size: 14px; margin-bottom: 22px; }
+  .faq__contact { grid-template-columns: 1fr; gap: 28px; margin-bottom: 96px; padding-top: 32px; }
+  .faq__contact-btn { justify-self: stretch; min-width: 0; }
+
   .entry__link { padding: 80px 20px 72px; }
   .entry__inner { grid-column: 1 / -1; }
   .entry__big { font-size: 19vw; gap: 16px; }
@@ -511,6 +563,7 @@ main { position: relative; padding-top: var(--head); }
     <a href="#schedule">SCHEDULE</a>
     <a href="#ambassadors">AMBASSADORS</a>
     <a href="#venue">VENUE</a>
+    <a href="#faq">Q&amp;A</a>
     <a class="nav__entry" href="#entry">出場エントリー</a>
     <button class="menu-btn" type="button" aria-label="メニュー"><span></span><span></span></button>
   </nav>
@@ -524,6 +577,7 @@ main { position: relative; padding-top: var(--head); }
   <a href="#schedule">SCHEDULE<span>スケジュール</span></a>
   <a href="#ambassadors">AMBASSADORS<span>アンバサダー</span></a>
   <a href="#venue">VENUE<span>会場</span></a>
+  <a href="#faq">Q&amp;A<span>よくある質問・ご相談</span></a>
 </div>
 
 <div class="intro" aria-hidden="true">
@@ -852,6 +906,54 @@ main { position: relative; padding-top: var(--head); }
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="sec faq" id="faq">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label fade">よくある質問</span>
+        <h2 class="h-en"><span class="mask"><span>Q&amp;A</span></span></h2>
+      </div>
+      <p class="faq__lead fade">興味がある！でも<br>一歩踏みとどまってしまう方へ。<br><em>まずはご相談ください。</em></p>
+      <div class="faq__list">
+        <details class="faq__item fade">
+          <summary>実績がなくても応募できますか？<i aria-hidden="true"></i></summary>
+          <p>はい。競技歴や大会実績は問いません。大事なのは、競技で積み上げてきた経験を自分の言葉で語ろうとする気持ちです。</p>
+        </details>
+        <details class="faq__item fade">
+          <summary>U-23の年齢は、いつの時点で見ますか？<i aria-hidden="true"></i></summary>
+          <p>本選開催日（2027年2月20日）時点で23歳以下の方が対象です。学生大会としての追加募集なので、まずは年齢だけご確認ください。不安な場合はお問い合わせください。</p>
+        </details>
+        <details class="faq__item fade">
+          <summary>エントリーは本当に無料ですか？<i aria-hidden="true"></i></summary>
+          <p>はい。今回の追加募集はエントリー費無料です。先着5名までの受付です。</p>
+        </details>
+        <details class="faq__item fade">
+          <summary>ピッチでは、何を話せばいいですか？<i aria-hidden="true"></i></summary>
+          <p>「自分はどんな競技をしてきたか」「そこから何を学んだか」「これからどう生かしたいか」を、自分の言葉で話します。完璧な原稿は不要です。相談窓口で一緒に整理することもできます。</p>
+        </details>
+        <details class="faq__item fade">
+          <summary>先着5名は、どう決まりますか？<i aria-hidden="true"></i></summary>
+          <p>応募フォームの受付順で、先着5名までとなります。定員に達し次第、受付を終了します。応募前の相談だけでも歓迎です。</p>
+        </details>
+        <details class="faq__item fade">
+          <summary>応募するか決める前に、相談だけでもいいですか？<i aria-hidden="true"></i></summary>
+          <p>もちろんです。「興味はあるけど不安」という段階でのご相談を歓迎しています。下の窓口からお気軽にご連絡ください。</p>
+        </details>
+      </div>
+      <div class="faq__contact fade">
+        <div>
+          <span class="faq__contact-label">お問い合わせ窓口</span>
+          <p class="faq__contact-copy">応募の前に、<br>話してみませんか。</p>
+          <p class="faq__contact-note">年齢・内容・準備の進め方など、気になることがあればお気軽にどうぞ。エントリー前のご相談も受け付けています。</p>
+        </div>
+        <a class="faq__contact-btn" href="https://asuyume-labo.com/#contact" target="_blank" rel="noopener">
+          <span>ご相談・お問い合わせ<small>アスユメLabo. 公式フォームへ</small></span>
+          <svg width="28" height="14" viewBox="0 0 28 14" fill="none" aria-hidden="true"><path d="M0 7h26M20 1l6 6-6 6" stroke="currentColor" stroke-width="1.6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ENTRY -->
   <section class="entry" id="entry">
     <a class="entry__link" href="https://docs.google.com/forms/d/1GWVUTudZDyf0ugoFoFHCzJ8HEdxFntUPBLGadZdWQ8E/viewform" target="_blank" rel="noopener">
@@ -888,6 +990,7 @@ main { position: relative; padding-top: var(--head); }
       <div class="footer__links">
         <a href="https://asuyume-labo.com/">アスユメLabo. トップ</a>
         <a href="https://asuyume-labo.com/about">岡安の経歴・実績</a>
+        <a href="#faq">ご相談・Q&amp;A</a>
         <a href="https://asuyume-labo.com/#contact">お問い合わせ</a>
       </div>
     </div>
