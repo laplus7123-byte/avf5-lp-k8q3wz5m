@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>ATHLETE VALUE FORUM 5 PITCH CONTEST 〜未来へのわだち〜 出場アスリート募集｜アスユメLabo.</title>
-<meta name="description" content="アスリートが自らの価値と未来を語るピッチコンテスト「ATHLETE VALUE FORUM 5」。2027年2月20日（土）docomo R&D OPEN LAB ODAIBAにて開催。出場アスリート募集中。">
+<meta name="description" content="ATHLETE VALUE FORUM 5 追加募集。U-23（学生大会）・先着5名・エントリー無料。応募期間2026年12月1日〜12月13日。2027年2月20日 docomo R&D OPEN LAB ODAIBA開催。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=Outfit:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -139,9 +139,9 @@ main { position: relative; padding-top: var(--head); }
 .fv__athletes-sp { display: none; }
 .fv__body {
   position: relative; z-index: 1; grid-area: 1 / 2 / 2 / -2; align-self: center;
-  padding: 26px 0;
+  padding: 18px 0;
 }
-.fv__eyebrow { font-family: var(--cond); font-size: 15px; letter-spacing: .3em; color: var(--gold); margin-bottom: 18px; }
+.fv__eyebrow { font-family: var(--cond); font-size: 15px; letter-spacing: .3em; color: var(--gold); margin-bottom: 10px; }
 .fv__title { display: flex; align-items: last baseline; gap: .08em; font-family: var(--en); font-weight: 800; font-size: var(--fs); text-transform: uppercase; }
 .fv__lines { line-height: .86; letter-spacing: -.012em; }
 /* 3.595em で3行ぶんの高さ。1.1倍にして上端を ATHLETE にそろえ、下は FORUM より少し下へはみ出させる */
@@ -149,7 +149,7 @@ main { position: relative; padding-top: var(--head); }
 .fv__num.mask { overflow: visible; }
 .fv__num > span { transform: scale(2.2); opacity: 0; transition: transform .42s cubic-bezier(.7, 0, .84, 0) .28s, opacity .15s linear .28s; }
 .fv__num.is-in > span { transform: none; opacity: 1; }
-.fv__row { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 40px; }
+.fv__row { margin-top: 24px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px 40px; }
 .fv__brand { width: min(27vw, 36svh, 420px); display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .fv__logo { width: 100%; }
 .fv__support { width: 54%; }
@@ -263,20 +263,27 @@ main { position: relative; padding-top: var(--head); }
 
 /* ---------- PRIZE ---------- */
 .prize .wrap { padding-bottom: 140px; }
-.prize__main { grid-column: 2 / -1; margin: 0; display: flex; align-items: flex-end; gap: 18px; }
-.prize__tag { writing-mode: vertical-rl; font-size: 15px; font-weight: 700; letter-spacing: .3em; padding: 0 12px 18px 0; border-right: 1px solid var(--fg); margin-bottom: 20px; line-height: 1; }
-.prize__num { position: relative; font-family: var(--en); font-weight: 800; font-size: clamp(120px, 16.5vw, 250px); line-height: .8; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
-.prize__ghost { visibility: hidden; }
-.prize__count { position: absolute; right: 0; bottom: 0; transform-origin: right bottom; }
-.prize__count.is-landed { color: var(--gold); animation: prize-land .6s cubic-bezier(.2, 1.6, .4, 1); }
-@keyframes prize-land { 0% { transform: scale(1.14); } 100% { transform: none; } }
-.prize__unit { font-size: clamp(28px, 3vw, 44px); font-weight: 700; margin-bottom: 14px; line-height: 1; }
-.prize__side { grid-column: 2 / 6; margin-top: 64px; border-top: 1px solid var(--line); padding-top: 24px; }
-.prize__side dt { font-weight: 700; font-size: 15px; }
-.prize__side dd { margin: 4px 0 0; }
-.prize__side dd strong { font-family: var(--en); font-weight: 700; font-size: 56px; line-height: 1.1; }
-.prize__side dd strong span { font-family: var(--ja); font-size: 22px; margin-left: 4px; }
-.prize__side dd p { color: var(--sub); font-size: 13px; }
+.prize__main { grid-column: 2 / -1; margin: 0; }
+.prize__ja {
+  font-weight: 700; font-size: clamp(56px, 9vw, 140px);
+  line-height: 1.1; letter-spacing: .12em; color: var(--gold);
+}
+.prize__side { grid-column: 2 / 8; margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; border-top: 1px solid var(--line); padding-top: 28px; }
+.prize__side div { min-width: 0; }
+.prize__side dt { font-weight: 700; font-size: 14px; letter-spacing: .14em; color: var(--gold); }
+.prize__side dd { margin: 8px 0 0; }
+.prize__side dd strong { font-family: var(--en); font-weight: 700; font-size: clamp(36px, 5vw, 56px); line-height: 1.1; letter-spacing: .02em; }
+.prize__side dd strong span { font-family: var(--ja); font-size: .42em; margin-left: 6px; letter-spacing: .08em; }
+.prize__side dd p { margin-top: 6px; color: var(--sub); font-size: 13px; line-height: 1.7; }
+.fv__badge {
+  display: flex; flex-wrap: wrap; gap: 6px 8px; margin: 0 0 12px;
+}
+.fv__badge span {
+  display: inline-block; padding: 6px 12px; border: 1px solid var(--gold);
+  color: var(--gold); font-size: 12px; font-weight: 700; letter-spacing: .12em; line-height: 1.3;
+}
+.fv__badge .is-fill { background: var(--gold); color: #000; border-color: var(--gold); }
+.guide__row dd strong em { font-style: normal; color: var(--gold); }
 
 /* ---------- AMBASSADORS ---------- */
 .amb .wrap { padding-bottom: 140px; }
@@ -427,11 +434,10 @@ main { position: relative; padding-top: var(--head); }
 
   .prize .wrap { padding-bottom: 96px; }
   .prize__main, .prize__side { grid-column: 1 / -1; margin-left: 20px; margin-right: 20px; }
-  .prize__main { flex-wrap: wrap; gap: 0 8px; }
-  .prize__tag { writing-mode: horizontal-tb; flex-basis: 100%; border-right: 0; padding: 0; margin-bottom: 14px; color: var(--gold); letter-spacing: .2em; }
-  .prize__num { font-size: 20.5vw; }
-  .prize__unit { font-size: 22px; margin-bottom: 6px; }
-  .prize__side { margin-top: 48px; }
+  .prize__ja { font-size: 16vw; letter-spacing: .08em; }
+  .prize__side { grid-template-columns: 1fr; gap: 28px; margin-top: 40px; }
+  .fv__badge { margin-bottom: 14px; }
+  .fv__badge span { font-size: 11px; padding: 7px 11px; letter-spacing: .1em; }
 
   .amb .wrap { padding-bottom: 96px; }
   .amb__lead { grid-column: 1 / -1; margin: -16px 20px 40px; }
@@ -487,7 +493,7 @@ main { position: relative; padding-top: var(--head); }
 </header>
 
 <div class="sp-menu" aria-hidden="true">
-  <a href="#prize">PRIZE<span>賞金・エントリー費</span></a>
+  <a href="#prize">PRIZE<span>賞金あり・エントリー無料</span></a>
   <a href="#winner">WINNER<span>前回優勝者</span></a>
   <a href="#concept">CONCEPT<span>AVF5について</span></a>
   <a href="#guidelines">GUIDELINES<span>募集要項</span></a>
@@ -511,6 +517,12 @@ main { position: relative; padding-top: var(--head); }
     <img class="fv__athletes" src="assets/athletes.webp" alt="アンバサダーの森崎可南子選手と馬場龍成選手" width="556" height="447" fetchpriority="high">
     <div class="fv__body">
       <p class="fv__eyebrow">ASUYUME LABO. PRESENTS</p>
+      <p class="fv__badge fade" aria-label="追加募集・U-23・エントリー無料">
+        <span class="is-fill">追加募集 先着5名</span>
+        <span>U-23 年齢制限</span>
+        <span>学生大会</span>
+        <span>ENTRY FREE</span>
+      </p>
       <h1 class="fv__title" aria-label="ATHLETE VALUE FORUM 5 PITCH CONTEST 〜未来へのわだち〜">
         <span class="fv__lines" aria-hidden="true">
           <span class="mask"><span>Athlete</span></span>
@@ -537,8 +549,8 @@ main { position: relative; padding-top: var(--head); }
       <div class="fv__cta">
         <a class="btn-entry" href="#entry">
           <span>
-            <b>出場アスリート募集中</b>
-            <small>応募期間 2026.10.15（木）〜 12.6（日）23:59</small>
+            <b>追加募集・先着5名</b>
+            <small>U-23（学生大会）／エントリー無料／2026.12.1（火）〜 12.13（日）23:59</small>
             <small class="js-countdown" role="timer" aria-live="off"><span class="countdown__nums">締切まであと <b data-unit="d">--</b>日 <b data-unit="h">--</b>:<b data-unit="m">--</b>:<b data-unit="s">--</b></span><span class="countdown__end" hidden>応募受付は終了しました</span></small>
           </span>
           <svg width="28" height="14" viewBox="0 0 28 14" fill="none" aria-hidden="true"><path d="M0 7h26M20 1l6 6-6 6" stroke="currentColor" stroke-width="1.6"/></svg>
@@ -555,7 +567,7 @@ main { position: relative; padding-top: var(--head); }
         <span class="mask"><span>言葉に変えろ。</span></span>
         <span class="mask"><span><em>未来への轍を刻め。</em></span></span>
       </h2>
-      <p class="message__lead fade">競技歴や実績は問いません。競技を通じて培ってきた経験を、これからの社会でどう生かすか。<br>アスリートが自らの価値と未来を、自分の言葉で語るピッチコンテストです。</p>
+      <p class="message__lead fade">今回は<strong style="color:var(--gold);font-weight:700">U-23（23歳以下）の学生大会</strong>として追加募集します。競技歴や実績は問いません。競技を通じて培ってきた経験を、これからの社会でどう生かすか。<br>アスリートが自らの価値と未来を、自分の言葉で語るピッチコンテストです。</p>
     </div>
   </section>
 
@@ -566,14 +578,18 @@ main { position: relative; padding-top: var(--head); }
         <span class="label fade">賞金・エントリー費</span>
         <h2 class="h-en"><span class="mask"><span>Prize</span></span></h2>
       </div>
-      <p class="prize__main fade" aria-label="賞金総額 20万円">
-        <span class="prize__tag" aria-hidden="true">賞金総額</span>
-        <span class="prize__num" aria-hidden="true"><span class="prize__ghost">200,000</span><span class="prize__count js-prize" data-to="200000">200,000</span></span>
-        <span class="prize__unit" aria-hidden="true">円</span>
+      <p class="prize__main fade" aria-label="賞金あり">
+        <span class="prize__ja"><span class="mask"><span>賞金あり</span></span></span>
       </p>
       <dl class="prize__side fade">
-        <dt>エントリー費</dt>
-        <dd><strong>2<span>万円</span></strong><p>2月20日のイベント参加費を含みます</p></dd>
+        <div>
+          <dt>エントリー費</dt>
+          <dd><strong>FREE<span>無料</span></strong><p>追加募集はエントリー費無料です</p></dd>
+        </div>
+        <div>
+          <dt>追加募集</dt>
+          <dd><strong>5<span>名</span></strong><p>先着5名／U-23（学生大会）</p></dd>
+        </div>
       </dl>
     </div>
   </section>
@@ -644,7 +660,11 @@ main { position: relative; padding-top: var(--head); }
         </div>
         <div class="guide__row fade">
           <dt>応募資格<span>ELIGIBILITY</span></dt>
-          <dd><strong>現役アスリートであること</strong>競技歴、実績は問いません。引退後1年以内まで応募可能です。</dd>
+          <dd><strong><em>U-23（23歳以下）の現役アスリート</em>／学生大会</strong>今回の追加募集は年齢制限ありの学生大会です。競技歴・実績は問いません。引退後1年以内まで応募可能です。</dd>
+        </div>
+        <div class="guide__row fade">
+          <dt>追加募集<span>EXTRA</span></dt>
+          <dd><strong>先着5名／エントリー無料</strong>応募期間 2026年12月1日（火）〜 12月13日（日）23:59</dd>
         </div>
         <div class="guide__row fade">
           <dt>参加意義<span>PURPOSE</span></dt>
@@ -676,12 +696,12 @@ main { position: relative; padding-top: var(--head); }
           <div class="phase__name">ENTRY</div>
           <div>
             <div class="step">
-              <p class="step__date"><small>2026</small>10.15<span class="w">THU</span></p>
-              <p class="step__txt"><b>応募受付開始</b><span>応募フォームよりエントリー</span></p>
+              <p class="step__date"><small>2026</small>12.1<span class="w">TUE</span></p>
+              <p class="step__txt"><b>追加募集 受付開始</b><span>先着5名・エントリー無料・U-23（学生大会）</span></p>
             </div>
             <div class="step">
-              <p class="step__date"><small>2026</small>12.6<span class="w">SUN</span></p>
-              <p class="step__txt"><b>応募締切</b><span>12月6日（日）23:59まで受け付けます</span></p>
+              <p class="step__date"><small>2026</small>12.13<span class="w">SUN</span></p>
+              <p class="step__txt"><b>応募締切</b><span>12月13日（日）23:59まで受け付けます</span></p>
             </div>
           </div>
         </div>
@@ -796,12 +816,12 @@ main { position: relative; padding-top: var(--head); }
   <section class="entry" id="entry">
     <a class="entry__link" href="https://docs.google.com/forms/d/1GWVUTudZDyf0ugoFoFHCzJ8HEdxFntUPBLGadZdWQ8E/viewform" target="_blank" rel="noopener">
       <div class="entry__inner">
-        <span class="label">出場エントリーはこちら</span>
+        <span class="label">追加募集エントリーはこちら</span>
         <p class="entry__big"><span class="mask"><span>ENTRY</span></span>
           <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M2 20h34M24 8l12 12-12 12" stroke="currentColor" stroke-width="3"/></svg>
         </p>
         <div class="countdown countdown--entry js-countdown" role="timer" aria-live="off">
-          <p class="countdown__label">応募締切まで<span>12.6（日）23:59</span></p>
+          <p class="countdown__label">応募締切まで<span>12.13（日）23:59</span></p>
           <p class="countdown__nums">
             <span><b data-unit="d">--</b><small>DAYS</small></span>
             <span><b data-unit="h">--</b><small>HRS</small></span>
@@ -811,8 +831,9 @@ main { position: relative; padding-top: var(--head); }
           <p class="countdown__end" hidden>応募受付は終了しました</p>
         </div>
         <dl class="entry__meta">
-          <div><dt>応募期間</dt><dd>2026年10月15日（木）〜 12月6日（日）23:59</dd></div>
-          <div><dt>エントリー費</dt><dd>2万円（2/20イベント参加費含む）</dd></div>
+          <div><dt>応募期間</dt><dd>2026年12月1日（火）〜 12月13日（日）23:59</dd></div>
+          <div><dt>追加募集</dt><dd>先着5名／U-23（学生大会）</dd></div>
+          <div><dt>エントリー費</dt><dd>無料</dd></div>
         </dl>
       </div>
     </a>
@@ -878,38 +899,7 @@ main { position: relative; padding-top: var(--head); }
   btn.addEventListener('click', () => toggle(!root.classList.contains('is-menu')));
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
 
-  const prize = document.querySelector('.js-prize');
-  const prizeTo = Number(prize.dataset.to);
-  const yen = n => n.toLocaleString('ja-JP');
-  const land = () => { prize.textContent = yen(prizeTo); prize.classList.add('is-landed'); };
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    land();
-  } else {
-    prize.textContent = '1';
-    const run = () => {
-      const dur = 2600;
-      const start = performance.now();
-      const step = now => {
-        const p = Math.min(1, (now - start) / dur);
-        const eased = 1 - Math.pow(1 - p, 4);
-        if (p < 1) {
-          prize.textContent = yen(Math.max(1, Math.floor(1 + (prizeTo - 1) * eased)));
-          requestAnimationFrame(step);
-        } else {
-          land();
-        }
-      };
-      requestAnimationFrame(step);
-    };
-    const prizeIo = new IntersectionObserver(entries => {
-      if (!entries[0].isIntersecting) return;
-      prizeIo.disconnect();
-      setTimeout(run, 300);
-    }, { threshold: .6 });
-    prizeIo.observe(prize.closest('.prize__main'));
-  }
-
-  const deadline = new Date('2026-12-06T23:59:59+09:00').getTime();
+  const deadline = new Date('2026-12-13T23:59:59+09:00').getTime();
   const boxes = document.querySelectorAll('.js-countdown');
   const pad = n => String(n).padStart(2, '0');
   const tick = () => {
