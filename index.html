@@ -419,6 +419,10 @@ main { position: relative; padding-top: var(--head); }
 .entry__meta div { display: flex; align-items: baseline; gap: 16px; }
 .entry__meta dt { font-weight: 700; font-size: 14px; letter-spacing: .14em; }
 .entry__meta dd { margin: 0; font-size: 17px; letter-spacing: .06em; }
+.entry__note { margin: 28px 0 0; font-size: 14px; color: var(--sub); letter-spacing: .06em; transition: color .4s; }
+.entry__link:hover .entry__note { color: #000; }
+.entry__link.is-closed,
+.entry__link.is-before { cursor: pointer; }
 
 /* ---------- FOOTER ---------- */
 .footer { border-top: 1px solid var(--line); }
@@ -643,11 +647,14 @@ main { position: relative; padding-top: var(--head); }
       <div class="fv__cell fv__date"><small>DATE</small><strong>2027.2.20</strong><span>SATURDAY</span></div>
       <div class="fv__cell fv__venue"><small>VENUE</small><strong>docomo R&amp;D OPEN LAB ODAIBA</strong></div>
       <div class="fv__cta">
-        <a class="btn-entry" href="#entry">
+        <a class="btn-entry js-entry-cta" href="#entry">
           <span>
-            <b>追加募集・先着5名</b>
+            <b class="js-entry-cta-title">追加募集・先着5名</b>
             <small>U-23（学生大会）／エントリー無料／2026.12.1（火）〜 12.13（日）23:59</small>
-            <small class="js-countdown" role="timer" aria-live="off"><span class="countdown__nums">締切まであと <b data-unit="d">--</b>日 <b data-unit="h">--</b>:<b data-unit="m">--</b>:<b data-unit="s">--</b></span><span class="countdown__end" hidden>応募受付は終了しました</span></small>
+            <small class="js-countdown" role="timer" aria-live="off">
+              <span class="countdown__nums"><span data-cd-prefix>締切まであと </span><b data-unit="d">--</b>日 <b data-unit="h">--</b>:<b data-unit="m">--</b>:<b data-unit="s">--</b></span>
+              <span class="countdown__end" hidden>申し込みは終了しました</span>
+            </small>
           </span>
           <svg width="28" height="14" viewBox="0 0 28 14" fill="none" aria-hidden="true"><path d="M0 7h26M20 1l6 6-6 6" stroke="currentColor" stroke-width="1.6"/></svg>
         </a>
@@ -1023,27 +1030,28 @@ main { position: relative; padding-top: var(--head); }
 
   <!-- ENTRY -->
   <section class="entry" id="entry">
-    <a class="entry__link" href="https://docs.google.com/forms/d/1GWVUTudZDyf0ugoFoFHCzJ8HEdxFntUPBLGadZdWQ8E/viewform" target="_blank" rel="noopener">
+    <a class="entry__link js-entry-link" href="https://docs.google.com/forms/d/1GWVUTudZDyf0ugoFoFHCzJ8HEdxFntUPBLGadZdWQ8E/viewform" target="_blank" rel="noopener">
       <div class="entry__inner">
-        <span class="label">追加募集エントリーはこちら</span>
-        <p class="entry__big"><span class="mask"><span>ENTRY</span></span>
+        <span class="label js-entry-label">追加募集エントリーはこちら</span>
+        <p class="entry__big"><span class="mask"><span class="js-entry-big">ENTRY</span></span>
           <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M2 20h34M24 8l12 12-12 12" stroke="currentColor" stroke-width="3"/></svg>
         </p>
         <div class="countdown countdown--entry js-countdown" role="timer" aria-live="off">
-          <p class="countdown__label">応募締切まで<span>12.13（日）23:59</span></p>
+          <p class="countdown__label"><span data-cd-label>応募締切まで</span><span data-cd-date>12.13（日）23:59</span></p>
           <p class="countdown__nums">
             <span><b data-unit="d">--</b><small>DAYS</small></span>
             <span><b data-unit="h">--</b><small>HRS</small></span>
             <span><b data-unit="m">--</b><small>MIN</small></span>
             <span><b data-unit="s">--</b><small>SEC</small></span>
           </p>
-          <p class="countdown__end" hidden>応募受付は終了しました</p>
+          <p class="countdown__end" hidden>申し込みは終了しました</p>
         </div>
         <dl class="entry__meta">
           <div><dt>応募期間</dt><dd>2026年12月1日（火）〜 12月13日（日）23:59</dd></div>
           <div><dt>追加募集</dt><dd>先着5名／U-23（学生大会）</dd></div>
           <div><dt>エントリー費</dt><dd>無料</dd></div>
         </dl>
+        <p class="entry__note js-entry-note">ご相談・お問い合わせは、受付期間外もお受けしています。</p>
       </div>
     </a>
   </section>
@@ -1109,19 +1117,91 @@ main { position: relative; padding-top: var(--head); }
   btn.addEventListener('click', () => toggle(!root.classList.contains('is-menu')));
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
 
-  const deadline = new Date('2026-12-13T23:59:59+09:00').getTime();
+  const START_AT = new Date('2026-12-01T00:00:00+09:00').getTime();
+  const END_AT = new Date('2026-12-13T23:59:59+09:00').getTime();
+  const ENTRY_URL = 'https://docs.google.com/forms/d/1GWVUTudZDyf0ugoFoFHCzJ8HEdxFntUPBLGadZdWQ8E/viewform';
   const boxes = document.querySelectorAll('.js-countdown');
+  const entryLink = document.querySelector('.js-entry-link');
+  const entryLabel = document.querySelector('.js-entry-label');
+  const entryBig = document.querySelector('.js-entry-big');
+  const entryNote = document.querySelector('.js-entry-note');
+  const entryCta = document.querySelector('.js-entry-cta');
+  const entryCtaTitle = document.querySelector('.js-entry-cta-title');
   const pad = n => String(n).padStart(2, '0');
+  let lastPhase = '';
   const tick = () => {
-    const left = Math.max(0, deadline - Date.now());
+    const now = Date.now();
+    const phase = now < START_AT ? 'before' : now <= END_AT ? 'open' : 'closed';
+    const target = phase === 'before' ? START_AT : END_AT;
+    const left = Math.max(0, target - now);
     const t = Math.floor(left / 1000);
     const v = { d: Math.floor(t / 86400), h: Math.floor(t / 3600) % 24, m: Math.floor(t / 60) % 60, s: t % 60 };
+
     boxes.forEach(box => {
-      box.querySelectorAll('[data-unit]').forEach(el => { el.textContent = pad(v[el.dataset.unit]); });
-      box.querySelector('.countdown__nums').hidden = left === 0;
-      box.querySelector('.countdown__end').hidden = left > 0;
+      const nums = box.querySelector('.countdown__nums');
+      const end = box.querySelector('.countdown__end');
+      const label = box.querySelector('[data-cd-label]');
+      const date = box.querySelector('[data-cd-date]');
+      const prefix = box.querySelector('[data-cd-prefix]');
+      if (phase === 'closed') {
+        if (nums) nums.hidden = true;
+        if (end) {
+          end.hidden = false;
+          end.textContent = '申し込みは終了しました';
+        }
+      } else {
+        if (nums) nums.hidden = false;
+        if (end) end.hidden = true;
+        box.querySelectorAll('[data-unit]').forEach(el => { el.textContent = pad(v[el.dataset.unit]); });
+        if (phase === 'before') {
+          if (label) label.textContent = '申し込み開始まで';
+          if (date) date.textContent = '12.1（火）0:00';
+          if (prefix) prefix.textContent = '開始まであと ';
+        } else {
+          if (label) label.textContent = '応募締切まで';
+          if (date) date.textContent = '12.13（日）23:59';
+          if (prefix) prefix.textContent = '締切まであと ';
+        }
+      }
     });
-    if (left === 0) clearInterval(timer);
+
+    if (phase !== lastPhase) {
+      lastPhase = phase;
+      entryLink.classList.toggle('is-before', phase === 'before');
+      entryLink.classList.toggle('is-closed', phase === 'closed');
+      if (phase === 'before') {
+        entryLink.href = '#contact';
+        entryLink.removeAttribute('target');
+        entryLink.removeAttribute('rel');
+        entryLabel.textContent = '受付開始前｜まずはご相談を';
+        entryBig.textContent = 'CONTACT';
+        entryNote.hidden = false;
+        entryNote.textContent = '12月1日 0:00 からエントリー開始。それまではお問い合わせ窓口でご相談を受け付けています。';
+        entryCta.href = '#contact';
+        entryCtaTitle.textContent = '申し込み開始まで';
+      } else if (phase === 'closed') {
+        entryLink.href = '#contact';
+        entryLink.removeAttribute('target');
+        entryLink.removeAttribute('rel');
+        entryLabel.textContent = '申し込みは終了しました';
+        entryBig.textContent = 'CLOSED';
+        entryNote.hidden = false;
+        entryNote.textContent = 'エントリー受付は終了しました。ご相談・お問い合わせは引き続き受け付けています。';
+        entryCta.href = '#contact';
+        entryCtaTitle.textContent = '申し込みは終了しました';
+      } else {
+        entryLink.href = ENTRY_URL;
+        entryLink.target = '_blank';
+        entryLink.rel = 'noopener';
+        entryLabel.textContent = '追加募集エントリーはこちら';
+        entryBig.textContent = 'ENTRY';
+        entryNote.hidden = false;
+        entryNote.textContent = 'ご相談・お問い合わせは、受付期間外もお受けしています。';
+        entryCta.href = '#entry';
+        entryCtaTitle.textContent = '追加募集・先着5名';
+      }
+    }
+    if (phase === 'closed') clearInterval(timer);
   };
   const timer = setInterval(tick, 1000);
   tick();
