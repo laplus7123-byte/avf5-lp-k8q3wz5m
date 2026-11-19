@@ -27,7 +27,8 @@ if (!location.hash && !matchMedia('(prefers-reduced-motion: reduce)').matches) d
   --ja: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
 }
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: var(--head); }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--head) + 20px); }
+.sec { scroll-margin-top: calc(var(--head) + 20px); }
 body {
   margin: 0;
   background: var(--bg);
@@ -246,15 +247,19 @@ main { position: relative; padding-top: var(--head); }
   padding: 40px 28px 44px; background: #111;
   min-width: 0;
 }
+.merit__head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 12px;
+}
 .merit__icon {
-  width: 120px; height: 120px;
+  width: 120px; height: 120px; flex: 0 0 auto;
 }
 .merit__icon img { display: block; width: 100%; height: 100%; }
 .merit__num {
   font-family: var(--en); font-weight: 700;
   font-size: clamp(80px, 9vw, 120px);
   letter-spacing: .02em; color: var(--gold); line-height: .8;
-  opacity: .28; margin: -6px 0 4px;
+  opacity: .28;
 }
 .merit__title {
   margin: 0; font-size: clamp(24px, 2.2vw, 34px); font-weight: 700;
@@ -365,6 +370,7 @@ main { position: relative; padding-top: var(--head); }
 .faq__item p {
   margin: 0 0 28px; max-width: 42em; color: var(--text);
   font-size: 15px; line-height: 2; letter-spacing: .04em;
+  word-break: keep-all; overflow-wrap: anywhere;
 }
 .faq__contact {
   grid-column: 2 / -2; margin: 0 0 140px; padding: 40px 0 0; border-top: 1px solid var(--line);
@@ -513,7 +519,7 @@ main { position: relative; padding-top: var(--head); }
   .merit { grid-column: 1 / -1; margin: 0 20px 96px; grid-template-columns: 1fr; gap: 14px; }
   .merit li { padding: 28px 22px 32px; gap: 14px; }
   .merit__icon { width: 96px; height: 96px; }
-  .merit__num { font-size: 88px; opacity: .26; margin: -4px 0 2px; }
+  .merit__num { font-size: 88px; opacity: .26; }
   .merit__title { font-size: 24px; }
   .merit__txt { font-size: 14px; }
 
@@ -778,26 +784,32 @@ main { position: relative; padding-top: var(--head); }
       </dl>
       <ul class="merit" aria-label="参加するメリット">
         <li class="fade">
-          <span class="merit__icon" aria-hidden="true">
-            <img src="assets/icons/01_strength.svg" alt="" width="120" height="120">
-          </span>
-          <span class="merit__num">01</span>
+          <div class="merit__head">
+            <span class="merit__num">01</span>
+            <span class="merit__icon" aria-hidden="true">
+              <img src="assets/icons/01_strength.svg" alt="" width="120" height="120">
+            </span>
+          </div>
           <p class="merit__title">自分の強みが、<br>言葉になる</p>
           <p class="merit__txt">試合で積み上げた経験を整理すると、「自分にしか言えないこと」が見えてきます。</p>
         </li>
         <li class="fade">
-          <span class="merit__icon" aria-hidden="true">
-            <img src="assets/icons/02_connection.svg" alt="" width="120" height="120">
-          </span>
-          <span class="merit__num">02</span>
+          <div class="merit__head">
+            <span class="merit__num">02</span>
+            <span class="merit__icon" aria-hidden="true">
+              <img src="assets/icons/02_connection.svg" alt="" width="120" height="120">
+            </span>
+          </div>
           <p class="merit__title">同じ熱量の<br>仲間と出会える</p>
           <p class="merit__txt">ライバル、仲間、共感者、応援者。競技の外でもつながれる人に出会えます。</p>
         </li>
         <li class="fade">
-          <span class="merit__icon" aria-hidden="true">
-            <img src="assets/icons/03_next_step.svg" alt="" width="120" height="120">
-          </span>
-          <span class="merit__num">03</span>
+          <div class="merit__head">
+            <span class="merit__num">03</span>
+            <span class="merit__icon" aria-hidden="true">
+              <img src="assets/icons/03_next_step.svg" alt="" width="120" height="120">
+            </span>
+          </div>
           <p class="merit__title">自信が、<br>次の一歩になる</p>
           <p class="merit__txt">「言葉にできた」経験が、競技でも進路でも、一段上の挑戦につながります。</p>
         </li>
@@ -956,7 +968,7 @@ main { position: relative; padding-top: var(--head); }
         </details>
         <details class="faq__item fade">
           <summary>ピッチでは、何を話せばいいですか？<i aria-hidden="true"></i></summary>
-          <p>完璧な原稿は不要です。「自分はどんな競技をしてきたか」「そこから何を学んだか」「これからどう生かしたいか」を、自分の言葉で話していただきます！</p>
+          <p>完璧な原稿は不要です。<br>「自分はどんな競技をしてきたか」<br>「そこから何を学んだか」<br>「これからどう生かしたいか」を、<br>自分の言葉で話していただきます！</p>
         </details>
         <details class="faq__item fade">
           <summary>先着5名は、どう決まりますか？<i aria-hidden="true"></i></summary>
