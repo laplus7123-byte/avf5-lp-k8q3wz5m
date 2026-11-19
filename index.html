@@ -366,20 +366,37 @@ main { position: relative; padding-top: var(--head); }
 }
 .faq__contact {
   grid-column: 2 / -2; margin: 0 0 140px; padding: 40px 0 0; border-top: 1px solid var(--line);
-  display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px 56px; align-items: end;
+  display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px 64px; align-items: start;
 }
 .faq__contact-label { display: block; font-size: 13px; font-weight: 700; letter-spacing: .16em; color: var(--gold); margin-bottom: 14px; }
 .faq__contact-copy { margin: 0; font-size: clamp(24px, 3vw, 40px); font-weight: 700; line-height: 1.4; letter-spacing: .04em; word-break: keep-all; }
 .faq__contact-note { margin: 16px 0 0; color: var(--text); font-size: 15px; line-height: 1.9; }
-.faq__contact-btn {
-  justify-self: end; display: inline-flex; align-items: center; justify-content: space-between; gap: 24px;
-  min-width: min(100%, 320px); padding: 22px 26px; background: var(--gold); color: #000;
-  font-weight: 700; font-size: 16px; letter-spacing: .1em; transition: background .25s;
+.contact-form { display: grid; gap: 18px; }
+.contact-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.contact-form label { display: block; font-size: 13px; font-weight: 700; letter-spacing: .1em; margin-bottom: 8px; }
+.contact-form label span { margin-left: 8px; font-weight: 500; color: var(--sub); }
+.contact-form label em { margin-left: 8px; font-style: normal; color: var(--gold); font-weight: 700; }
+.contact-form input, .contact-form select, .contact-form textarea {
+  width: 100%; appearance: none; border: 1px solid var(--line); border-radius: 0;
+  background: #0a0a0a; color: var(--fg); font: inherit; letter-spacing: .04em;
+  padding: 14px 16px; transition: border-color .2s;
 }
-.faq__contact-btn:hover { background: var(--fg); }
-.faq__contact-btn small { display: block; margin-top: 4px; font-size: 12px; font-weight: 500; letter-spacing: .06em; }
-.faq__contact-btn svg { flex-shrink: 0; transition: transform .25s; }
-.faq__contact-btn:hover svg { transform: translateX(6px); }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+  outline: none; border-color: var(--gold);
+}
+.contact-form textarea { min-height: 140px; resize: vertical; line-height: 1.8; }
+.contact-form select { background-image: linear-gradient(45deg, transparent 50%, var(--sub) 50%), linear-gradient(135deg, var(--sub) 50%, transparent 50%); background-position: calc(100% - 18px) calc(50% - 2px), calc(100% - 12px) calc(50% - 2px); background-size: 6px 6px, 6px 6px; background-repeat: no-repeat; padding-right: 36px; }
+.contact-form__check { display: flex; align-items: flex-start; gap: 12px; font-size: 13px; line-height: 1.7; color: var(--text); font-weight: 500; letter-spacing: .04em; }
+.contact-form__check input { width: 18px; height: 18px; margin-top: 3px; flex-shrink: 0; accent-color: var(--gold); }
+.contact-form__submit {
+  justify-self: start; display: inline-flex; align-items: center; justify-content: space-between; gap: 24px;
+  min-width: 240px; padding: 18px 24px; border: 0; background: var(--gold); color: #000; cursor: pointer;
+  font-family: inherit; font-weight: 700; font-size: 15px; letter-spacing: .12em; transition: background .25s;
+}
+.contact-form__submit:hover { background: var(--fg); }
+.contact-form__submit:disabled { opacity: .55; cursor: wait; }
+.contact-form__msg { margin: 0; font-size: 14px; line-height: 1.7; color: var(--gold); }
+.contact-form__msg.is-error { color: #ff8f8f; }
 
 /* ---------- ENTRY ---------- */
 .entry { border-top: 1px solid var(--line); }
@@ -524,7 +541,8 @@ main { position: relative; padding-top: var(--head); }
   .faq__item summary { padding: 22px 0; font-size: 16px; gap: 16px; }
   .faq__item p { font-size: 14px; margin-bottom: 22px; }
   .faq__contact { grid-template-columns: 1fr; gap: 28px; margin-bottom: 96px; padding-top: 32px; }
-  .faq__contact-btn { justify-self: stretch; min-width: 0; }
+  .contact-form__row { grid-template-columns: 1fr; }
+  .contact-form__submit { width: 100%; min-width: 0; }
 
   .entry__link { padding: 80px 20px 72px; }
   .entry__inner { grid-column: 1 / -1; }
@@ -940,16 +958,65 @@ main { position: relative; padding-top: var(--head); }
           <p>もちろんです。「興味はあるけど不安」という段階でのご相談を歓迎しています。下の窓口からお気軽にご連絡ください。</p>
         </details>
       </div>
-      <div class="faq__contact fade">
+      <div class="faq__contact fade" id="contact">
         <div>
           <span class="faq__contact-label">お問い合わせ窓口</span>
           <p class="faq__contact-copy">応募の前に、<br>話してみませんか。</p>
           <p class="faq__contact-note">年齢・内容・準備の進め方など、気になることがあればお気軽にどうぞ。エントリー前のご相談も受け付けています。</p>
         </div>
-        <a class="faq__contact-btn" href="https://asuyume-labo.com/#contact" target="_blank" rel="noopener">
-          <span>ご相談・お問い合わせ<small>アスユメLabo. 公式フォームへ</small></span>
-          <svg width="28" height="14" viewBox="0 0 28 14" fill="none" aria-hidden="true"><path d="M0 7h26M20 1l6 6-6 6" stroke="currentColor" stroke-width="1.6"/></svg>
-        </a>
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="contact-form__row">
+            <div>
+              <label for="cf-name">お名前<em>必須</em></label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div>
+              <label for="cf-kana">ふりがな<em>必須</em></label>
+              <input id="cf-kana" name="kana" type="text" autocomplete="off" required>
+            </div>
+          </div>
+          <div class="contact-form__row">
+            <div>
+              <label for="cf-email">メールアドレス<em>必須</em></label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div>
+              <label for="cf-tel">電話番号<span>任意</span></label>
+              <input id="cf-tel" name="tel" type="tel" autocomplete="tel">
+            </div>
+          </div>
+          <div>
+            <label for="cf-topic">ご相談の種別<em>必須</em></label>
+            <select id="cf-topic" name="topic" required>
+              <option value="">選択してください</option>
+              <option>応募前の相談</option>
+              <option>U-23・応募資格について</option>
+              <option>ピッチ内容について</option>
+              <option>スケジュール・会場について</option>
+              <option>その他</option>
+            </select>
+          </div>
+          <div class="contact-form__row">
+            <div>
+              <label for="cf-sport">競技名<span>任意</span></label>
+              <input id="cf-sport" name="sport" type="text">
+            </div>
+            <div>
+              <label for="cf-age">年齢<span>任意・U-23確認用</span></label>
+              <input id="cf-age" name="age" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div>
+            <label for="cf-body">相談・質問内容<em>必須</em></label>
+            <textarea id="cf-body" name="body" required placeholder="気になっていることを自由にお書きください"></textarea>
+          </div>
+          <label class="contact-form__check">
+            <input id="cf-privacy" name="privacy" type="checkbox" required>
+            <span>ご記入いただいた情報は、本コンテストのご相談対応・ご連絡にのみ使用することに同意します</span>
+          </label>
+          <button class="contact-form__submit" type="submit">送信する</button>
+          <p class="contact-form__msg" id="contact-form-msg" hidden></p>
+        </form>
       </div>
     </div>
   </section>
@@ -990,8 +1057,8 @@ main { position: relative; padding-top: var(--head); }
       <div class="footer__links">
         <a href="https://asuyume-labo.com/">アスユメLabo. トップ</a>
         <a href="https://asuyume-labo.com/about">岡安の経歴・実績</a>
-        <a href="#faq">ご相談・Q&amp;A</a>
-        <a href="https://asuyume-labo.com/#contact">お問い合わせ</a>
+        <a href="#faq">Q&amp;A</a>
+        <a href="#contact">ご相談フォーム</a>
       </div>
     </div>
   </footer>
@@ -1058,6 +1125,56 @@ main { position: relative; padding-top: var(--head); }
   };
   const timer = setInterval(tick, 1000);
   tick();
+
+  // CreateInquiryForm.gs 実行後、ログの JSON をここに貼る
+  const CONTACT_FORM = {
+    action: '',
+    entries: { name: '', kana: '', email: '', tel: '', topic: '', sport: '', age: '', body: '', privacy: '' },
+    privacyValue: 'ご記入いただいた情報は、本コンテストのご相談対応・ご連絡にのみ使用することに同意します',
+  };
+  const contactForm = document.getElementById('contact-form');
+  const contactMsg = document.getElementById('contact-form-msg');
+  const showContactMsg = (text, isError) => {
+    contactMsg.hidden = false;
+    contactMsg.textContent = text;
+    contactMsg.classList.toggle('is-error', !!isError);
+  };
+  contactForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!CONTACT_FORM.action || !CONTACT_FORM.entries.name) {
+      showContactMsg('お問い合わせフォームの接続準備中です。しばらくしてから再度お試しください。', true);
+      return;
+    }
+    if (!contactForm.reportValidity()) return;
+    const fd = new FormData(contactForm);
+    const body = new URLSearchParams();
+    Object.entries(CONTACT_FORM.entries).forEach(([key, id]) => {
+      if (!id) return;
+      if (key === 'privacy') {
+        if (fd.get('privacy')) body.append('entry.' + id, CONTACT_FORM.privacyValue);
+        return;
+      }
+      const v = String(fd.get(key) || '').trim();
+      if (v) body.append('entry.' + id, v);
+    });
+    const btn = contactForm.querySelector('[type="submit"]');
+    btn.disabled = true;
+    showContactMsg('送信しています…');
+    try {
+      await fetch(CONTACT_FORM.action, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString(),
+      });
+      contactForm.reset();
+      showContactMsg('送信しました。内容を確認のうえ、事務局よりご連絡します。');
+    } catch (err) {
+      showContactMsg('送信に失敗しました。時間をおいて再度お試しください。', true);
+    } finally {
+      btn.disabled = false;
+    }
+  });
 })();
 </script>
 </body>
