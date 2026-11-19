@@ -243,16 +243,18 @@ main { position: relative; padding-top: var(--head); }
 }
 .merit li {
   display: flex; flex-direction: column; gap: 18px;
-  padding: 36px 28px 40px; background: #111;
+  padding: 40px 28px 44px; background: #111;
   min-width: 0;
 }
 .merit__icon {
-  width: 64px; height: 64px;
+  width: 120px; height: 120px;
 }
 .merit__icon img { display: block; width: 100%; height: 100%; }
 .merit__num {
-  font-family: var(--en); font-weight: 700; font-size: 18px;
-  letter-spacing: .16em; color: var(--gold); line-height: 1;
+  font-family: var(--en); font-weight: 700;
+  font-size: clamp(80px, 9vw, 120px);
+  letter-spacing: .02em; color: var(--gold); line-height: .8;
+  opacity: .28; margin: -6px 0 4px;
 }
 .merit__title {
   margin: 0; font-size: clamp(24px, 2.2vw, 34px); font-weight: 700;
@@ -510,7 +512,8 @@ main { position: relative; padding-top: var(--head); }
   .guide__row dt, .guide__row dd { grid-column: 1 / -1; }
   .merit { grid-column: 1 / -1; margin: 0 20px 96px; grid-template-columns: 1fr; gap: 14px; }
   .merit li { padding: 28px 22px 32px; gap: 14px; }
-  .merit__icon { width: 56px; height: 56px; }
+  .merit__icon { width: 96px; height: 96px; }
+  .merit__num { font-size: 88px; opacity: .26; margin: -4px 0 2px; }
   .merit__title { font-size: 24px; }
   .merit__txt { font-size: 14px; }
 
@@ -776,7 +779,7 @@ main { position: relative; padding-top: var(--head); }
       <ul class="merit" aria-label="参加するメリット">
         <li class="fade">
           <span class="merit__icon" aria-hidden="true">
-            <img src="assets/icons/01_strength.svg" alt="" width="64" height="64">
+            <img src="assets/icons/01_strength.svg" alt="" width="120" height="120">
           </span>
           <span class="merit__num">01</span>
           <p class="merit__title">自分の強みが、<br>言葉になる</p>
@@ -784,7 +787,7 @@ main { position: relative; padding-top: var(--head); }
         </li>
         <li class="fade">
           <span class="merit__icon" aria-hidden="true">
-            <img src="assets/icons/02_connection.svg" alt="" width="64" height="64">
+            <img src="assets/icons/02_connection.svg" alt="" width="120" height="120">
           </span>
           <span class="merit__num">02</span>
           <p class="merit__title">同じ熱量の<br>仲間と出会える</p>
@@ -792,7 +795,7 @@ main { position: relative; padding-top: var(--head); }
         </li>
         <li class="fade">
           <span class="merit__icon" aria-hidden="true">
-            <img src="assets/icons/03_next_step.svg" alt="" width="64" height="64">
+            <img src="assets/icons/03_next_step.svg" alt="" width="120" height="120">
           </span>
           <span class="merit__num">03</span>
           <p class="merit__title">自信が、<br>次の一歩になる</p>
