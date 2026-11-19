@@ -189,21 +189,32 @@ main { position: relative; padding-top: var(--head); }
 .btn-entry:hover svg { transform: translateX(6px); }
 
 /* ---------- MESSAGE ---------- */
-.message .wrap { padding: 150px 0 160px; align-items: center; }
-.message__body { grid-column: 2 / 8; min-width: 0; }
+.message {
+  position: relative;
+  overflow: hidden;
+}
+.message__bg {
+  position: absolute; inset: 0; z-index: 0;
+  pointer-events: none;
+}
+.message__bg img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 20%;
+  opacity: .3; display: block;
+}
+.message .wrap {
+  position: relative; z-index: 1;
+  padding: 150px 0 160px;
+}
 .message__copy {
-  font-weight: 700; font-size: clamp(34px, 5.2vw, 72px); line-height: 1.32; letter-spacing: .06em;
+  grid-column: 2 / -2;
+  font-weight: 700; font-size: clamp(34px, 6vw, 84px); line-height: 1.32; letter-spacing: .06em;
   word-break: keep-all;
 }
 .message__copy em { font-style: normal; color: var(--gold); }
-.message__lead { margin-top: 40px; font-size: 16px; line-height: 2.2; color: var(--text); }
-.message__photo {
-  grid-column: 8 / -1; margin: 0; overflow: hidden; align-self: stretch;
-  min-height: 420px;
-}
-.message__photo img {
-  width: 100%; height: 100%; min-height: 420px;
-  object-fit: cover; object-position: center 20%; display: block;
+.message__lead {
+  grid-column: 2 / 9; margin-top: 56px;
+  font-size: 16px; line-height: 2.2; color: var(--text);
 }
 
 /* ---------- WINNER ---------- */
@@ -499,15 +510,11 @@ main { position: relative; padding-top: var(--head); }
   .fv__cta { grid-column: 1 / -1; }
   .btn-entry { padding: 18px 20px; }
 
-  .message .wrap { padding: 96px 0 104px; }
-  .message__body { grid-column: 1 / -1; padding: 0 20px; }
+  .message .wrap { padding: 96px 20px 104px; }
+  .message__copy, .message__lead { grid-column: 1 / -1; }
   .message__copy { font-size: min(8.2vw, calc((100vw - 40px) / 14.5)); }
-  .message__lead { margin-top: 28px; font-size: 15px; }
-  .message__photo {
-    grid-column: 1 / -1; margin-top: 36px; min-height: 0;
-    aspect-ratio: 4 / 3;
-  }
-  .message__photo img { min-height: 0; height: 100%; object-position: center 15%; }
+  .message__lead { margin-top: 36px; font-size: 15px; }
+  .message__bg img { object-position: center 15%; }
 
   .winner .wrap { padding-bottom: 96px; }
   .winner__photo { grid-column: 1 / -1; }
@@ -685,17 +692,15 @@ main { position: relative; padding-top: var(--head); }
 
   <!-- MESSAGE -->
   <section class="sec message">
+    <div class="message__bg" aria-hidden="true">
+      <img src="assets/shimozawa_pitch.jpg" alt="" width="1024" height="696" loading="lazy">
+    </div>
     <div class="wrap">
-      <div class="message__body">
-        <h2 class="message__copy">
-          <span class="mask"><span>言葉にすることが、</span></span>
-          <span class="mask"><span><em>キャリアの強みに。</em></span></span>
-        </h2>
-        <p class="message__lead fade">今回は<strong style="color:var(--gold);font-weight:700">U-23（23歳以下）の学生大会</strong>として追加募集します。実績は問いません。<br>競技で積み上げた経験を自分の言葉で語り、これからの進路につなげるピッチコンテストです。</p>
-      </div>
-      <figure class="message__photo fade">
-        <img src="assets/shimozawa_pitch.jpg" alt="AVFでのピッチの様子" width="1024" height="696" loading="lazy">
-      </figure>
+      <h2 class="message__copy">
+        <span class="mask"><span>言葉にすることが、</span></span>
+        <span class="mask"><span><em>キャリアの強みに。</em></span></span>
+      </h2>
+      <p class="message__lead fade">今回は<strong style="color:var(--gold);font-weight:700">U-23（23歳以下）の学生大会</strong>として追加募集します。実績は問いません。<br>競技で積み上げた経験を自分の言葉で語り、これからの進路につなげるピッチコンテストです。</p>
     </div>
   </section>
 
