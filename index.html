@@ -1231,10 +1231,20 @@ main { position: relative; padding-top: var(--head); }
   const timer = setInterval(tick, 1000);
   tick();
 
-  // CreateInquiryForm.gs 実行後、ログの JSON をここに貼る
+  // CreateInquiryForm.gs 実行ログより（フォームID: 1uyp1QTgqz1sYt75CqOI2mQerpGqDJGY7L7zVOOOeuME）
   const CONTACT_FORM = {
-    action: '',
-    entries: { name: '', kana: '', email: '', tel: '', topic: '', sport: '', age: '', body: '', privacy: '' },
+    action: 'https://docs.google.com/forms/d/1uyp1QTgqz1sYt75CqOI2mQerpGqDJGY7L7zVOOOeuME/formResponse',
+    entries: {
+      name: '1860430767',
+      kana: '385434419',
+      email: '1624595712',
+      tel: '2091537550',
+      topic: '1845746560',
+      sport: '1365621745',
+      age: '97634100',
+      body: '534984075',
+      privacy: '1865762356',
+    },
     privacyValue: 'ご記入いただいた情報は、本コンテストのご相談対応・ご連絡にのみ使用することに同意します',
   };
   const contactForm = document.getElementById('contact-form');
